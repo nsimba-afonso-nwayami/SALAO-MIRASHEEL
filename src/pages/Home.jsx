@@ -142,7 +142,7 @@ export default function Home() {
                             <img src={ServicoEstetica} alt="Serviço 4" />
                         </div>
                         <div className="content">
-                            <h3>Estética {formatPrice(50000)}</h3>
+                            <h3>Estética</h3>
                             <a href="/servico/estetica" className="btn">Ver Mais</a>
                         </div>
                     </div>
