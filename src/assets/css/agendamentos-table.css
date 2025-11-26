@@ -1,7 +1,15 @@
 .h2-agenda {
-    font-size: 2rem;
-    margin-bottom: 2ren;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2ren;
 }
+.p-agenda {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  line-height: 1.5;
+  color: var(--black);
+}
+
 .tabela-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -42,11 +50,30 @@
   font-weight: bold;
 }
 
-.badge-yellow { background: #FFF7CC; color: #A68B00; }
-.badge-green { background: #CCF5D1; color: #0F8C2A; }
-.badge-red { background: #FFD1D1; color: #A30000; }
-.badge-blue { background: #DDE7FF; color: #0C1744; }
-.badge-gray { background: #E5E5E5; color: #555; }
+.badge-yellow {
+  background: #FFF7CC;
+  color: #A68B00;
+}
+
+.badge-green {
+  background: #CCF5D1;
+  color: #0F8C2A;
+}
+
+.badge-red {
+  background: #FFD1D1;
+  color: #A30000;
+}
+
+.badge-blue {
+  background: #DDE7FF;
+  color: #0C1744;
+}
+
+.badge-gray {
+  background: #E5E5E5;
+  color: #555;
+}
 
 /* AÇÕES */
 .acoes {
@@ -54,7 +81,7 @@
   gap: 8px;
 }
 
-.btn {
+.btn-2 {
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
@@ -64,18 +91,18 @@
   transition: 0.2s;
 }
 
-.btn.confirmar {
+.btn-2.confirmar {
   background: #1A234E;
 }
 
-.btn.confirmar:hover {
+.btn-2.confirmar:hover {
   background: #0C1744;
 }
 
-.btn.cancelar {
+.btn-2.cancelar {
   background: #7D3CFF;
 }
 
-.btn.cancelar:hover {
+.btn-2.cancelar:hover {
   opacity: 0.85;
 }
