@@ -147,14 +147,14 @@ export default function Agendamentos() {
                       </td>
                       <td className="acoes">
                         <button
-                          className="btn-2 confirmar"
+                          className="button confirmar"
                           onClick={() => atualizarStatus(a.id, "confirmado")}
                         >
                           Confirmar
                         </button>
 
                         <button
-                          className="btn-2 cancelar"
+                          className="button cancelar"
                           onClick={() => atualizarStatus(a.id, "cancelado")}
                         >
                           Cancelar

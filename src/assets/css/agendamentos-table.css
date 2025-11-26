@@ -81,7 +81,7 @@
   gap: 8px;
 }
 
-.btn-2 {
+.button {
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
@@ -91,18 +91,18 @@
   transition: 0.2s;
 }
 
-.btn-2.confirmar {
+.button.confirmar {
   background: #1A234E;
 }
 
-.btn-2.confirmar:hover {
+.button.confirmar:hover {
   background: #0C1744;
 }
 
-.btn-2.cancelar {
+.button.cancelar {
   background: #7D3CFF;
 }
 
-.btn-2.cancelar:hover {
+.button.cancelar:hover {
   opacity: 0.85;
 }
