@@ -14,12 +14,14 @@ export default function Agendar() {
         data: '',
         hora: '',
         observacoes: '',
-        profissional: '', // Pode ser vazio ou selecionado
+        profissional: '', // pode ser vazio
     });
 
-    const navigate = useNavigate(); // Usado para navegação caso o cliente não esteja logado
+    const [servicos, setServicos] = useState([]); // serviços da API
 
-    // Função para atualizar o estado do formulário
+    const navigate = useNavigate();
+
+    // Atualiza o estado do formulário
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevState) => ({
@@ -28,68 +30,70 @@ export default function Agendar() {
         }));
     };
 
-    // Função para verificar a validade do token (não necessário para enviar agendamento sem login)
+    // Verifica token (opcional)
     const verifyToken = () => {
-        const token = localStorage.getItem("token"); // Recupera o token do localStorage
-        console.log("Token no LocalStorage:", token); // Exibe o token no console para depuração
-
-        // Se o token não existe ou está expirado, redireciona para login
+        const token = localStorage.getItem("token");
+        console.log("Token no LocalStorage:", token);
         if (!token) {
             alert("A sua sessão expirou ou não foi encontrada. Por favor, faça login novamente.");
-            localStorage.removeItem("token"); // Limpa o token expirado
-            // Não redireciona mais para o login se a pessoa não estiver logada
-            return false; // Retorna falso caso o token não seja válido
+            localStorage.removeItem("token");
+            return false;
         }
-
-        return true; // Token válido
+        return true;
     };
 
+    // Busca serviços da API
     useEffect(() => {
-        // Verifica se o token está presente e válido (mas não impedimos o envio se não houver token)
-        const tokenIsValid = verifyToken();
-        // Não fazemos nada com o cliente logado neste caso, pois qualquer pessoa pode agendar
+        verifyToken(); // apenas debug; não bloqueia o envio
+        const fetchServicos = async () => {
+            try {
+                const response = await fetch("https://api2.nwayami.com/api/servicos/");
+                const data = await response.json();
+                setServicos(data); // preenche o select
+            } catch (error) {
+                console.error("Erro ao buscar serviços:", error);
+            }
+        };
+        fetchServicos();
     }, [navigate]);
 
-    // Função para enviar os dados do formulário
+    // Envia formulário
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Podemos enviar o ID como vazio, ou um valor como "guest" se a pessoa não estiver logada
-        const clienteId = ""; // Não será mais necessário enviar um cliente ID autenticado
-
-        // Verifique se todos os campos obrigatórios estão preenchidos
+        // Campos obrigatórios
         const requiredFields = ['data', 'hora', 'servico'];
         const missing = requiredFields.filter(field => !formData[field]);
-
         if (missing.length > 0) {
-            // Exibe os campos faltantes em um alerta
             alert("Por favor, preencha os seguintes campos: " + missing.join(", "));
             return;
         }
 
         try {
-            // Envia os dados para o backend (Django)
+            const payload = {
+                cliente: null, // não envia string vazia
+                profissional: formData.profissional || null,
+                servico: parseInt(formData.servico), // converte para número
+                data: formData.data,
+                hora: formData.hora,
+                observacoes: formData.observacoes || "",
+            };
+
+            console.log("Dados que serão enviados:", payload); // debug
+
             const response = await fetch("https://api2.nwayami.com/api/agendamentos/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`, // Usando o nome correto da chave no localStorage
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 },
-                body: JSON.stringify({
-                    cliente: clienteId, // Não envia o ID do cliente
-                    profissional: formData.profissional || null, // Profissional pode ser nulo
-                    servico: formData.servico,
-                    data: formData.data,
-                    hora: formData.hora,
-                    observacoes: formData.observacoes || "", // Pode ser vazio, mas nunca null
-                }),
+                body: JSON.stringify(payload),
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 alert("Agendamento realizado com sucesso!");
-                // Limpa os campos após o envio
                 setFormData({
                     nome: '',
                     telefone: '',
@@ -97,12 +101,12 @@ export default function Agendar() {
                     data: '',
                     hora: '',
                     observacoes: '',
-                    profissional: '',  // Isso pode ser selecionado ou nulo
+                    profissional: '',
                 });
             } else {
-                // Caso haja erro no envio
                 alert("Ocorreu um erro ao realizar o agendamento: " + (data.detail || 'Erro desconhecido.'));
             }
+
         } catch (error) {
             console.error("Erro ao enviar o agendamento:", error);
             alert("Erro ao enviar o agendamento. Tente novamente mais tarde.");
@@ -113,10 +117,8 @@ export default function Agendar() {
         <>
             <title>Agendar | Salão Mirashell</title>
 
-            {/* Header */}
             <Header />
 
-            {/* Banner */}
             <section className="banner agendar">
                 <div className="content">
                     <h3>Agende a Sua Sessão</h3>
@@ -124,7 +126,6 @@ export default function Agendar() {
                 </div>
             </section>
 
-            {/* Agendar */}
             <section className="visit" id="agendamento">
                 <h1 className="heading">Agende Sua Sessão</h1>
 
@@ -162,7 +163,11 @@ export default function Agendar() {
                                 onChange={handleChange}
                             >
                                 <option value="">Selecione o serviço</option>
-                                {/* Adicione os serviços aqui */}
+                                {servicos.map((servico) => (
+                                    <option key={servico.id} value={servico.id}>
+                                        {servico.nome}
+                                    </option>
+                                ))}
                             </select>
                         </div>
 
@@ -204,9 +209,7 @@ export default function Agendar() {
                 </div>
             </section>
 
-            {/* Footer */}
             <Footer />
         </>
     );
 }
-

@@ -1,87 +1,98 @@
-import { Link } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "../assets/css/style.css";
 import "../assets/css/services.css";
 import "../assets/css/services-perucas.css";
-import ServicoPeruca from "../assets/images/service-perucas.jpg";
+import ServicoPerucas from "../assets/images/service-perucas.jpg";
 
-export default function ServicePerucas () {
-    return (
-        <>
-            <title>Extensões e Perucas | Salão Mirashell</title>
-            
-            {/*Header*/}
-            <Header />
+export default function ServicePerucas() {
+  return (
+    <>
+      <title>Extensões e Perucas | Salão Mirashell</title>
 
-            {/*Banner*/}
-            <section className="banner banner-perucas">
-                <div className="content">
-                    <h3>Extensões e Perucas</h3>
-                    <p>Transforme o Seu Visual com Estilo e Confiança</p>
-                    <p>Cuidado profissional, técnicas modernas e resultados que valorizam a sua beleza.</p>
-                </div>
-            </section>
+      {/*Header*/}
+      <Header />
 
-            {/*service*/}
-            <section className="service">
-                <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
+      {/*Banner*/}
+      <section className="banner banner-perucas">
+        <div className="content">
+          <h3>Extensões e Perucas</h3>
+          <p>Transforme o Seu Visual com Estilo e Confiança</p>
+          <p>Cuidado profissional, técnicas modernas e resultados que valorizam a sua beleza.</p>
+        </div>
+      </section>
 
-                <div className="box-container">
-                    <div className="box">
-                        <div class="image">
-                            <img src={ServicoPeruca} alt="Desfriso" />
-                        </div>
-                        <div className="content">
-                            <h2>Desfriso</h2>
-                            <p>Reduza o volume e conquiste fios mais soltos e alinhados, mantendo o movimento e a suavidade natural do seu cabelo.</p>
-                        </div>
-                    </div>
+      {/*service*/}
+      <section className="service">
+        <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
 
-                    <div className="box">
-                        <div className="image">
-                            <img src={ServicoPeruca} alt="Botox Capilar" />
-                        </div>
-                        <div className="content">
-                            <h2>Botox Capilar</h2>
-                            <p>Tratamento avançado para restaurar o brilho e a força dos fios. Reduz o frizz e deixa o cabelo mais nutrido e maleável.</p>
-                        </div>
-                    </div>
+        <div className="box-container">
 
-                    <div className="box">
-                        <div className="image">
-                            <img src={ServicoPeruca} alt="Escova Progressiva" />
-                        </div>
-                        <div className="content">
-                            <h2>Escova Progressiva</h2>
-                            <p>Alisamento duradouro, brilho intenso e cabelos disciplinados. Ideal para quem busca praticidade no dia a dia.</p>
-                        </div>
-                    </div>
+          {/* Tratamento de Perucas */}
+          <div className="box">
+            <div class="image">
+                <img src={ServicoPerucas} alt="Desfriso" />
+            </div>
+            <div className="content">
+              <h2>Tratamento de Perucas</h2>
+              <p>Hidratação + Mise: 10.000 Kz</p>
+              <p>Só Aplicação: 25.000 Kz</p>
+              <p>Peruca Completa: 12.000 Kz</p>
+              <p>Peruca Extra Longa: 15.000 Kz</p>
+              <a href="/agendar" className="btn">Agenda Agora</a>
+            </div>
+          </div>
 
-                    <div className="box">
-                        <div className="image">
-                            <img src={ServicoPeruca} alt="Hidratação e Reconstrução" />
-                        </div>
-                        <div className="content">
-                            <h2>Hidratação e Reconstrução</h2>
-                            <p>Recuperação profunda da fibra capilar. Combate o ressecamento, fortalece os fios e devolve maciez imediata.</p>
-                        </div>
-                    </div>
+          {/* Coloração de Perucas */}
+          <div className="box">
+            <div class="image">
+                <img src={ServicoPerucas} alt="Desfriso" />
+            </div>
+            <div className="content">
+              <h2>Coloração de Perucas</h2>
+              <p>Peruca Curta + Mise: 25.000 Kz</p>
+              <p>Peruca Média + Mise: 30.000 Kz</p>
+              <p>Peruca Completa: 45.000 Kz</p>
+              <p>Peruca Extra Longa: 50.000 Kz</p>
+              <p>Aplicação de Lace: 25.000 Kz</p>
+              <a href="/agendar" className="btn">Agenda Agora</a>
+            </div>
+          </div>
 
-                    <div className="box">
-                        <div className="image">
-                            <img src={ServicoPeruca} alt="Madeixas" />
-                        </div>
-                        <div className="content">
-                            <h2>Madeixas</h2>
-                            <p>Ilumine o visual com mechas personalizadas que valorizam o seu tom de pele e trazem dimensão ao cabelo.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          {/* Aplicação de Cabelo */}
+          <div className="box">
+            <div class="image">
+                <img src={ServicoPerucas} alt="Desfriso" />
+            </div>
+            <div className="content">
+              <h2>Aplicação de Cabelo</h2>
+              <p>Costura + Mise: 25.000 Kz</p>
+              <p>Nó Italiano + Mise: 30.000 Kz</p>
+              <p>Lace Frontal + Brushing: 25.000 Kz</p>
+              <p>Preparação de Queratina: 60.000 Kz</p>
+              <a href="/agendar" className="btn">Agenda Agora</a>
+            </div>
+          </div>
 
-            {/*Footer*/}
-            <Footer />
-        </>
-    )
+          {/* Tranças XOXO */}
+          <div className="box">
+            <div class="image">
+                <img src={ServicoPerucas} alt="Desfriso" />
+            </div>
+            <div className="content">
+              <h2>Tranças XOXO</h2>
+              <p>Curto: 15.000 Kz</p>
+              <p>Médio: 20.000 Kz</p>
+              <p>Comprido: 25.000 Kz</p>
+              <a href="/agendar" className="btn">Agenda Agora</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/*Footer*/}
+      <Footer />
+    </>
+  )
 }

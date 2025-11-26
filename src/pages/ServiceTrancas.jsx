@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "../assets/css/style.css";
@@ -6,52 +5,81 @@ import "../assets/css/services.css";
 import "../assets/css/services-trancas.css";
 import ServicoTrancas from "../assets/images/service-trancas.jpg";
 
-export default function ServiceTrancas () {
-    return (
-        <>
-            <title>Tranças e Penteados | Salão Mirashell</title>
+export default function ServiceTrancas() {
+  return (
+    <>
+      <title>Estética e Beleza | Salão Mirashell</title>
 
-            {/*Header*/}
-            <Header />
+      {/*Header*/}
+      <Header />
 
-            {/*Banner*/}
-            <section className="banner banner-trancas">
-                <div className="content">
-                    <h3>Tranças e Penteados</h3>
-                    <p>Transforme o Seu Visual com Estilo e Confiança</p>
-                    <p>Cuidado profissional, técnicas modernas e resultados que valorizam a sua beleza.</p>
-                </div>
-            </section>
+      {/*Banner*/}
+      <section className="banner banner-trancas">
+        <div className="content">
+          <h3>Tranças e Penteados</h3>
+          <p>Transforme o Seu Visual com Estilo e Confiança</p>
+          <p>Cuidado profissional, técnicas modernas e resultados que valorizam a sua beleza.</p>
+        </div>
+      </section>
 
-            {/*service*/}
-            <section className="service">
-                <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
+      {/*service*/}
+      <section className="service">
+        <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
 
-                <div className="box-container">
-                    <div className="box">
-                        <div class="image">
-                            <img src={ServicoTrancas} alt="Desfriso" />
-                        </div>
-                        <div className="content">
-                            <h2>Desfriso</h2>
-                            <p>Reduza o volume e conquiste fios mais soltos e alinhados, mantendo o movimento e a suavidade natural do seu cabelo.</p>
-                        </div>
-                    </div>
+        <div className="box-container">
 
-                    <div className="box">
-                        <div className="image">
-                            <img src={ServicoTrancas} alt="Botox Capilar" />
-                        </div>
-                        <div className="content">
-                            <h2>Botox Capilar</h2>
-                            <p>Tratamento avançado para restaurar o brilho e a força dos fios. Reduz o frizz e deixa o cabelo mais nutrido e maleável.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          {/* Limpeza Facial */}
+          <div className="box">
+            <div class="image">
+                <img src={ServicoTrancas} alt="Desfriso" />
+            </div>
+            <div className="content">
+              <h2>Limpeza Facial</h2>
+              <p>Hidro Facial: 25.000 Kz</p>
+              <p>Limpeza Normal: 15.000 Kz</p>
+              <p>Limpeza Profunda: 20.000 Kz</p>
+              <p>Microblading: 35.000 Kz</p>
+              <p>Micro Pigmentação: 30.000 Kz</p>
+              <a href="/agendar" className="btn">Agenda Agora</a>
+            </div>
+          </div>
 
-            {/*Footer*/}
-            <Footer />
-        </>
-    )
+          {/* Maquiagem */}
+          <div className="box">
+            <div class="image">
+                <img src={ServicoTrancas} alt="Desfriso" />
+            </div>
+            <div className="content">
+              <h2>Maquiagem</h2>
+              <p>Maquiagem de Noiva: 20.000 Kz</p>
+              <p>Maquiagem Normal: 15.000 Kz</p>
+              <p>Pintura de Henna: 3.000 Kz</p>
+              <p>Aplicação de Cílios Normal: 10.000 Kz</p>
+              <a href="/agendar" className="btn">Agenda Agora</a>
+            </div>
+          </div>
+
+          {/* Cordoletes e Bobis */}
+          <div className="box">
+            <div class="image">
+                <img src={ServicoTrancas} alt="Desfriso" />
+            </div>
+            <div className="content">
+              <h2>Cordoletes e Bobis</h2>
+              <p>Americano (Grossas): 15.000 Kz</p>
+              <p>Americano (Médias): 20.000 Kz</p>
+              <p>Americano (Finas): 25.000 Kz</p>
+              <p>Bobi de Crianças (Grossas): 7.000 Kz</p>
+              <p>Bobi de Crianças (Finas): 10.000 Kz</p>
+              <a href="/agendar" className="btn">Agenda Agora</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/*Footer*/}
+      <Footer />
+    </>
+  )
 }

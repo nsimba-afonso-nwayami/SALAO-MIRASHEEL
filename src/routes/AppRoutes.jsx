@@ -1,9 +1,12 @@
 import { Routes, Route } from "react-router-dom";
+
 import Home from "../pages/Home";
 import ServiceHair from "../pages/ServiceHair";
 import ServicePerucas from "../pages/ServicePerucas";
 import ServiceTrancas from "../pages/ServiceTrancas";
-import Serviceestetica from "../pages/ServiceEstetica";
+import ServiceEstetica from "../pages/ServiceEstetica";
+import Agendamentos from "../pages/Agendamentos";
+
 import Agendar from "../pages/Agendar";
 import MeusAgendamentos from "../pages/Meuspedidos";
 import Loja from "../pages/Loja";
@@ -14,27 +17,29 @@ import RecuperarSenha from "../auth/RecuperarSenha";
 
 import NotFound from "../pages/NotFound";
 
-export default function AppRoutes () {
+export default function AppRoutes() {
     return (
         <Routes>
-            {/*Rotas do site */}
+            {/* Site */}
             <Route path="/" element={<Home />} />
-            <Route path="/servico/cabeleireiro" element={<ServiceHair />} />
-            <Route path="/Contador" element={<MeusAgendamentos  />} />
-            <Route path="/servico/extensoes-e-perucas" element={<ServicePerucas />} />
-            <Route path="/servico/trancas-e-penteados" element={<ServiceTrancas />} />
-            <Route path="/servico/estetica" element={<Serviceestetica />} />
+            <Route path="/cabeleireiro" element={<ServiceHair />} />
+            <Route path="/service-perucas" element={<ServicePerucas />} />
+            <Route path="/service-trancas" element={<ServiceTrancas />} />
+            <Route path="/service-estetica" element={<ServiceEstetica />} />
             <Route path="/agendar" element={<Agendar />} />
+            <Route path="/Contador" element={<MeusAgendamentos />} />
 
-            {/*Rotas de loja */}
+            {/* Loja */}
             <Route path="/loja" element={<Loja />} />
 
-            {/*Rotas de login */}
+            {/* Login */}
             <Route path="/auth/login" element={<Login />} />
             <Route path="/auth/cadastrar-se" element={<CadastrarSe />} />
             <Route path="/auth/recuperar-senha" element={<RecuperarSenha />} />
+            <Route path="/admin/agendamentos" element={<Agendamentos />} />
 
+            {/* Not Found */}
             <Route path="*" element={<NotFound />} />
         </Routes>
-    )
+    );
 }

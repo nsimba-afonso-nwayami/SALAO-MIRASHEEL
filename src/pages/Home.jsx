@@ -102,52 +102,54 @@ export default function Home() {
                 </div>
             </section>
 
-            {/*Serviços*/}
             <section className="services" id="servicos">
                 <h1 className="heading">Nossos Serviços</h1>
 
                 <div className="box-container">
+
                     <div className="box">
                         <div className="image">
-                            <img src={ServiceHair} alt="Cabeleireiro" />
+                            <img src={ServiceHair} alt="" />
                         </div>
                         <div className="content">
                             <h3>Cabeleireiro</h3>
-                            <a href="/servico/cabeleireiro" className="btn">Ver mais</a>
+                            <a href="/cabeleireiro" className="btn">Ver mais</a>
                         </div>
                     </div>
 
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoPeruca} alt="Serviço 2" />
+                            <img src={ServicoPeruca} alt="" />
                         </div>
                         <div className="content">
                             <h3>Extensões e Perucas</h3>
-                            <a href="/servico/extensoes-e-perucas" className="btn">Ver Mais</a>
+                            <a href="/service-perucas" className="btn">Ver mais</a>
                         </div>
                     </div>
 
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoTrancas} alt="Serviço 3" />
+                            <img src={ServicoTrancas} alt="" />
                         </div>
                         <div className="content">
                             <h3>Tranças e Penteados</h3>
-                            <a href="/servico/trancas-e-penteados" className="btn">Ver Mais</a>
+                            <a href="/service-trancas" className="btn">Ver mais</a>
                         </div>
                     </div>
 
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Serviço 4" />
+                            <img src={ServicoEstetica} alt="" />
                         </div>
                         <div className="content">
                             <h3>Estética</h3>
-                            <a href="/servico/estetica" className="btn">Ver Mais</a>
+                            <a href="/service-estetica" className="btn">Ver mais</a>
                         </div>
                     </div>
+
                 </div>
             </section>
+
 
             {/*Galeria*/}
             <section className="gallery" id="galeria">

@@ -7,17 +7,16 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
-  const [loading, setLoading] = useState(false); // Adicionando estado de loading
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);  // Inicia o loading
-    setErro("");       // Limpa qualquer erro anterior
+    setLoading(true);
+    setErro("");
 
     try {
-      // 🔐 Faz a requisição POST para o backend
-      const response = await fetch("https://api2.nwayami.com/api-token-auth/", {
+      const response = await fetch("https://api2.nwayami.com/api/jwt-logar/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -26,42 +25,44 @@ export default function Login() {
         }),
       });
 
-      const data = await response.json();
-      console.log("Resposta da API:", data); // Logando resposta completa
+      // Recebe o texto bruto da resposta
+      const textData = await response.text();
+      alert("Resposta bruta da API:\n" + textData);
+
+      // Converte para JSON
+      const data = JSON.parse(textData);
+      console.log("Resposta da API (JSON):", data);
 
       if (!response.ok) {
         throw new Error(data?.detail || "Usuário ou senha inválidos");
       }
 
-      // ✅ Obtém o token de acesso e o ID do usuário da resposta
-      const accessToken = data.token;
-      const refreshToken = data.refresh;
-      const userId = data?.user_id || data?.id || data?.user?.id; // Verificando diferentes formas de ID
+      // JWT token correto
+      const accessToken = data.access;
+      const userId = data.user_id;
+      const isStaff = data.is_staff || false;
+      const isSuperuser = data.is_superuser || false;
 
       if (!accessToken) throw new Error("Token de acesso não encontrado na resposta.");
 
-      // 💾 Salva os tokens no localStorage com chave consistente
-      localStorage.setItem("token", accessToken); // Correção: chave correta para o accessToken
-      if (refreshToken) localStorage.setItem("refresh_token", refreshToken); // Correção: chave correta para o refreshToken
+      // Salva token e flags de admin
+      localStorage.setItem("token", accessToken);
+      localStorage.setItem("isAdmin", (isStaff || isSuperuser).toString());
 
-      // Se o ID do usuário estiver presente, armazena no localStorage
       if (userId) {
-        localStorage.setItem("clienteId", userId); // Armazenando ID do cliente no localStorage
+        localStorage.setItem("clienteId", userId);
         console.log("ID do usuário encontrado e salvo:", userId);
-      } else {
-        console.log("ID do usuário não encontrado na resposta da API.");
       }
 
       console.log("✅ Login bem-sucedido. Token salvo:", accessToken);
-
-      // 🔀 Redireciona para a página inicial ou dashboard
-      navigate("/");
+      navigate("/"); // redireciona para a home
 
     } catch (err) {
       console.error("❌ Erro no login:", err);
-      setErro(err.message);  // Exibe mensagem de erro
+      setErro(err.message);
+      alert("Erro no login:\n" + err.message);
     } finally {
-      setLoading(false); // Finaliza o loading
+      setLoading(false);
     }
   };
 
@@ -88,7 +89,6 @@ export default function Login() {
             required
           />
 
-          {/* Botão de login com desabilitação durante o carregamento */}
           <button type="submit" className="btn" disabled={loading}>
             {loading ? "Entrando..." : "Entrar"}
           </button>

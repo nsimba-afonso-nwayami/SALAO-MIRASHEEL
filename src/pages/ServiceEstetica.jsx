@@ -17,76 +17,78 @@ export default function ServiceEstetica () {
             {/*Banner*/}
             <section className="banner banner-estetica">
                 <div className="content">
-                    <h3>estética</h3>
-                    <p>Transforme o Seu Visual com Estilo e Confiança</p>
-                    <p>Cuidado profissional, técnicas modernas e resultados que valorizam a sua beleza.</p>
+                    <h3>Tratamentos Estéticos</h3>
+                    <p>Realce sua beleza com técnicas modernas e resultados profissionais.</p>
+                    <p>Cuidado especializado para corpo e rosto.</p>
                 </div>
             </section>
 
             {/*service*/}
             <section className="service">
-                <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
+                <a href="/agendar" className="btn cta-button">Agende Sua Sessão</a>
 
                 <div className="box-container">
+
+                    {/* Radiofrequência */}
                     <div className="box">
-                        <div class="image">
-                            <img src={ServicoEstetica} alt="Desfriso" />
+                        <div className="image">
+                            <img src={ServicoEstetica} alt="Radiofrequência" />
                         </div>
                         <div className="content">
-                            <h2>Desfriso</h2>
-                            <p>Reduza o volume e conquiste fios mais soltos e alinhados, mantendo o movimento e a suavidade natural do seu cabelo.</p>
+                            <h2>Radiofrequência</h2>
+                            <p>8.000 Kz</p>
+                            <a href="/agendar" className="btn">Agenda Agora</a>
                         </div>
                     </div>
 
+                    {/* Drenagem Linfática Infantil */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Botox Capilar" />
+                            <img src={ServicoEstetica} alt="Drenagem Linfática Infantil" />
                         </div>
                         <div className="content">
-                            <h2>Botox Capilar</h2>
-                            <p>Tratamento avançado para restaurar o brilho e a força dos fios. Reduz o frizz e deixa o cabelo mais nutrido e maleável.</p>
+                            <h2>Drenagem Linfática Infantil</h2>
+                            <p>20.000 Kz</p>
+                            <a href="/agendar" className="btn">Agenda Agora</a>
                         </div>
                     </div>
 
+                    {/* Hidrofacial */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Botox Capilar" />
+                            <img src={ServicoEstetica} alt="Hidrofacial" />
                         </div>
                         <div className="content">
-                            <h2>Botox Capilar</h2>
-                            <p>Tratamento avançado para restaurar o brilho e a força dos fios. Reduz o frizz e deixa o cabelo mais nutrido e maleável.</p>
+                            <h2>Hidrofacial</h2>
+                            <p>25.000 Kz</p>
+                            <a href="/agendar" className="btn">Agenda Agora</a>
                         </div>
                     </div>
 
+                    {/* Corrente Russa */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Botox Capilar" />
+                            <img src={ServicoEstetica} alt="Corrente Russa" />
                         </div>
                         <div className="content">
-                            <h2>Botox Capilar</h2>
-                            <p>Tratamento avançado para restaurar o brilho e a força dos fios. Reduz o frizz e deixa o cabelo mais nutrido e maleável.</p>
+                            <h2>Corrente Russa</h2>
+                            <p>8.000 Kz</p>
+                            <a href="/agendar" className="btn">Agenda Agora</a>
                         </div>
                     </div>
 
+                    {/* Desintoxicação Corporal */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Botox Capilar" />
+                            <img src={ServicoEstetica} alt="Desintoxicação Corporal" />
                         </div>
                         <div className="content">
-                            <h2>Botox Capilar</h2>
-                            <p>Tratamento avançado para restaurar o brilho e a força dos fios. Reduz o frizz e deixa o cabelo mais nutrido e maleável.</p>
+                            <h2>Desintoxicação Corporal</h2>
+                            <p>25.000 Kz</p>
+                            <a href="/agendar" className="btn">Agenda Agora</a>
                         </div>
                     </div>
 
-                    <div className="box">
-                        <div className="image">
-                            <img src={ServicoEstetica} alt="Botox Capilar" />
-                        </div>
-                        <div className="content">
-                            <h2>Botox Capilar</h2>
-                            <p>Tratamento avançado para restaurar o brilho e a força dos fios. Reduz o frizz e deixa o cabelo mais nutrido e maleável.</p>
-                        </div>
-                    </div>
                 </div>
             </section>
 
