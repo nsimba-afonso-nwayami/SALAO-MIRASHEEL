@@ -110,7 +110,7 @@ export default function Agendamentos() {
         {loading && <p className="text-center text-gray-500">Carregando agendamentos...</p>}
         {erro && <p className="text-center text-red-500">{erro}</p>}
         {!loading && !erro && agendamentos.length === 0 && (
-          <p className="text-center text-gray-600">Nenhum agendamento encontrado.</p>
+          <p className="p-agenda">Nenhum agendamento encontrado.</p>
         )}
 
         {/* Pendentes */}
@@ -147,14 +147,14 @@ export default function Agendamentos() {
                       </td>
                       <td className="acoes">
                         <button
-                          className="btn confirmar"
+                          className="btn-2 confirmar"
                           onClick={() => atualizarStatus(a.id, "confirmado")}
                         >
                           Confirmar
                         </button>
 
                         <button
-                          className="btn cancelar"
+                          className="btn-2 cancelar"
                           onClick={() => atualizarStatus(a.id, "cancelado")}
                         >
                           Cancelar
