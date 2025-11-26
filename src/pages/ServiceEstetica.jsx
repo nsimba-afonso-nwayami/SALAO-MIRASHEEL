@@ -5,6 +5,10 @@ import "../assets/css/style.css";
 import "../assets/css/services.css";
 import "../assets/css/services-estetica.css";
 import ServicoEstetica from "../assets/images/service-estetica.jpg";
+import ServicoRadio from "../assets/images/service-estetica-radio.jpg";
+import ServicoDrenagem from "../assets/images/service-estetica-drenagem.jpg";
+import ServicoHidro from "../assets/images/service-estetica-hidro.jpg";
+import ServicoCorporal from "../assets/images/service-estetica-corporal.jpg";
 
 export default function ServiceEstetica () {
     return (
@@ -25,14 +29,13 @@ export default function ServiceEstetica () {
 
             {/*service*/}
             <section className="service">
-                <a href="/agendar" className="btn cta-button">Agende Sua Sessão</a>
 
                 <div className="box-container">
 
                     {/* Radiofrequência */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Radiofrequência" />
+                            <img src={ServicoRadio} alt="Radiofrequência" />
                         </div>
                         <div className="content">
                             <h2>Radiofrequência</h2>
@@ -44,7 +47,7 @@ export default function ServiceEstetica () {
                     {/* Drenagem Linfática Infantil */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Drenagem Linfática Infantil" />
+                            <img src={ServicoDrenagem} alt="Drenagem Linfática Infantil" />
                         </div>
                         <div className="content">
                             <h2>Drenagem Linfática Infantil</h2>
@@ -56,7 +59,7 @@ export default function ServiceEstetica () {
                     {/* Hidrofacial */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Hidrofacial" />
+                            <img src={ServicoHidro} alt="Hidrofacial" />
                         </div>
                         <div className="content">
                             <h2>Hidrofacial</h2>
@@ -80,7 +83,7 @@ export default function ServiceEstetica () {
                     {/* Desintoxicação Corporal */}
                     <div className="box">
                         <div className="image">
-                            <img src={ServicoEstetica} alt="Desintoxicação Corporal" />
+                            <img src={ServicoCorporal} alt="Desintoxicação Corporal" />
                         </div>
                         <div className="content">
                             <h2>Desintoxicação Corporal</h2>

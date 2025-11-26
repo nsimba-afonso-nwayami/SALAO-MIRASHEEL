@@ -3,7 +3,12 @@ import Footer from "../components/footer/Footer";
 import "../assets/css/style.css";
 import "../assets/css/services.css";
 import "../assets/css/services-hair.css";
+import ServicoTranca from "../assets/images/service-hair-trancas.jpg";
+import ServicoJuba from "../assets/images/service-hair-juba.jpg";
 import ServicoDesfriso from "../assets/images/service-hair-desfriso.jpg";
+import ServicoHidratacao from "../assets/images/service-hair-hidratacao.jpg";
+import ServicoVirada from "../assets/images/service-hair-virada.jpg";
+import ServicoMise from "../assets/images/service-hair-mise.jpg";
 
 export default function ServiceHair() {
   return (
@@ -24,14 +29,13 @@ export default function ServiceHair() {
 
       {/*service*/}
       <section className="service">
-        <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
 
         <div className="box-container">
 
           {/* Tranças */}
           <div className="box">
             <div class="image">
-                <img src={ServicoDesfriso} alt="Desfriso" />
+                <img src={ServicoTranca} alt="Tranças" />
             </div>
             <div className="content">
               <h2>Tranças</h2>
@@ -46,7 +50,7 @@ export default function ServiceHair() {
           {/* Croche Juba */}
           <div className="box">
             <div class="image">
-                <img src={ServicoDesfriso} alt="Desfriso" />
+                <img src={ServicoJuba} alt="Croche Juba" />
             </div>
             <div className="content">
               <h2>Croche Juba</h2>
@@ -73,7 +77,7 @@ export default function ServiceHair() {
           {/* Desfriso e Afro */}
           <div className="box">
             <div class="image">
-                <img src={ServicoDesfriso} alt="Desfriso" />
+                <img src={ServicoDesfriso} alt="Desfriso e Afro" />
             </div>
             <div className="content">
               <h2>Desfriso e Afro</h2>
@@ -89,7 +93,7 @@ export default function ServiceHair() {
           {/* Hidratação e Reconstrução */}
           <div className="box">
             <div class="image">
-                <img src={ServicoDesfriso} alt="Desfriso" />
+                <img src={ServicoHidratacao} alt="Hidratação e Reconstrução (Cabelo Crespo)" />
             </div>
             <div className="content">
               <h2>Hidratação e Reconstrução (Cabelo Crespo)</h2>
@@ -104,7 +108,7 @@ export default function ServiceHair() {
           {/* Viradas Americanas */}
           <div className="box">
             <div class="image">
-                <img src={ServicoDesfriso} alt="Desfriso" />
+                <img src={ServicoVirada} alt="Viradas Americanas" />
             </div>
             <div className="content">
               <h2>Viradas Americanas</h2>
@@ -118,7 +122,7 @@ export default function ServiceHair() {
           {/* Mise e Brushing */}
           <div className="box">
             <div class="image">
-                <img src={ServicoDesfriso} alt="Desfriso" />
+                <img src={ServicoMise} alt=">Mise e Brushing" />
             </div>
             <div className="content">
               <h2>Mise e Brushing</h2>

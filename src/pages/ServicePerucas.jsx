@@ -4,6 +4,10 @@ import "../assets/css/style.css";
 import "../assets/css/services.css";
 import "../assets/css/services-perucas.css";
 import ServicoPerucas from "../assets/images/service-perucas.jpg";
+import ServicoTratamento from "../assets/images/service-perucas-tratamento.jpg";
+import ServicoColoracao from "../assets/images/service-perucas-coloracao.jpg";
+import ServicoAplicacao from "../assets/images/service-perucas-aplicacao.jpg";
+import ServicoXoxo from "../assets/images/service-perucas-xoxo.jpg";
 
 export default function ServicePerucas() {
   return (
@@ -24,14 +28,13 @@ export default function ServicePerucas() {
 
       {/*service*/}
       <section className="service">
-        <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
 
         <div className="box-container">
 
           {/* Tratamento de Perucas */}
           <div className="box">
             <div class="image">
-                <img src={ServicoPerucas} alt="Desfriso" />
+                <img src={ServicoTratamento} alt="Tratamento de Perucas" />
             </div>
             <div className="content">
               <h2>Tratamento de Perucas</h2>
@@ -46,7 +49,7 @@ export default function ServicePerucas() {
           {/* Coloração de Perucas */}
           <div className="box">
             <div class="image">
-                <img src={ServicoPerucas} alt="Desfriso" />
+                <img src={ServicoColoracao} alt="Coloração de Perucas" />
             </div>
             <div className="content">
               <h2>Coloração de Perucas</h2>
@@ -62,7 +65,7 @@ export default function ServicePerucas() {
           {/* Aplicação de Cabelo */}
           <div className="box">
             <div class="image">
-                <img src={ServicoPerucas} alt="Desfriso" />
+                <img src={ServicoAplicacao} alt="Aplicação de Cabelo" />
             </div>
             <div className="content">
               <h2>Aplicação de Cabelo</h2>
@@ -77,7 +80,7 @@ export default function ServicePerucas() {
           {/* Tranças XOXO */}
           <div className="box">
             <div class="image">
-                <img src={ServicoPerucas} alt="Desfriso" />
+                <img src={ServicoXoxo} alt="Tranças XOXO" />
             </div>
             <div className="content">
               <h2>Tranças XOXO</h2>

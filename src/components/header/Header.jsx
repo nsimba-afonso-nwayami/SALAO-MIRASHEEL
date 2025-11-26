@@ -52,7 +52,6 @@ export default function Header() {
       </nav>
 
       <div className="icons">
-        <Link to="/loja" className="link fas fa-store"></Link>
         {loggedIn ? (
           <button
             onClick={handleLogout}

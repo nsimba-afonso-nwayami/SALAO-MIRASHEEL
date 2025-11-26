@@ -3,6 +3,8 @@ import Footer from "../components/footer/Footer";
 import "../assets/css/style.css";
 import "../assets/css/services.css";
 import "../assets/css/services-trancas.css";
+import ServicoLimpeza from "../assets/images/service-trancas-limpeza.jpg";
+import ServicoMaquiagem from "../assets/images/service-trancas-maquiagem.jpg";
 import ServicoTrancas from "../assets/images/service-trancas.jpg";
 
 export default function ServiceTrancas() {
@@ -24,14 +26,13 @@ export default function ServiceTrancas() {
 
       {/*service*/}
       <section className="service">
-        <a href="/agendar" className="btn cta-button">Agende Sua sessão</a>
 
         <div className="box-container">
 
           {/* Limpeza Facial */}
           <div className="box">
             <div class="image">
-                <img src={ServicoTrancas} alt="Desfriso" />
+                <img src={ServicoLimpeza} alt="Limpeza Facial" />
             </div>
             <div className="content">
               <h2>Limpeza Facial</h2>
@@ -47,7 +48,7 @@ export default function ServiceTrancas() {
           {/* Maquiagem */}
           <div className="box">
             <div class="image">
-                <img src={ServicoTrancas} alt="Desfriso" />
+                <img src={ServicoMaquiagem} alt="Maquiagem" />
             </div>
             <div className="content">
               <h2>Maquiagem</h2>

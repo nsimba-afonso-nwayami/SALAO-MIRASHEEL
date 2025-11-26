@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import "../assets/css/style.css";
+import "../assets/css/agendamentos-table.css";
 
 export default function Agendamentos() {
   const [agendamentos, setAgendamentos] = useState([]);
@@ -58,9 +60,9 @@ export default function Agendamentos() {
   const atualizarStatus = async (id, novoStatus) => {
     try {
       const response = await fetch(
-        `https://api2.nwayami.com/api/agendamentos/${id}/atualizar_status/`, // endpoint atualizado
+        `https://api2.nwayami.com/api/agendamentos/${id}/atualizar_status/`,
         {
-          method: "POST", // agora é um POST (se estiver utilizando método POST para atualizar status)
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -88,20 +90,20 @@ export default function Agendamentos() {
 
   const statusBadge = (status) => {
     const colors = {
-      pendente: "bg-yellow-100 text-yellow-700",
-      confirmado: "bg-green-100 text-green-700",
-      cancelado: "bg-red-100 text-red-700",
-      concluido: "bg-blue-100 text-blue-700",
+      pendente: "badge-yellow",
+      confirmado: "badge-green",
+      cancelado: "badge-red",
+      concluido: "badge-blue",
     };
-    return colors[status] || "bg-gray-100 text-gray-700";
+    return colors[status] || "badge-gray";
   };
 
   return (
     <>
       <Header />
 
-      <section className="services px-6 py-12 bg-gray-50">
-        <h1 className="heading text-3xl font-bold text-center mb-10 text-purple-700">
+      <section className="services">
+        <h1 className="heading">
           Agendamentos
         </h1>
 
@@ -114,66 +116,95 @@ export default function Agendamentos() {
         {/* Pendentes */}
         {pendentes.length > 0 && (
           <>
-            <h2 className="text-2xl font-bold text-yellow-600 mb-6">Pendentes</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pendentes.map((a) => (
-                <div
-                  key={a.id}
-                  className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{a.servicoNome}</h3>
-                  <p><strong>Cliente:</strong> {a.clienteNome}</p>
-                  <p><strong>Profissional:</strong> {a.profissionalNome}</p>
-                  <p><strong>Data:</strong> {a.data}</p>
-                  <p><strong>Hora:</strong> {a.hora}</p>
-                  {a.observacoes && <p><strong>Observações:</strong> {a.observacoes}</p>}
-                  <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold mt-2 ${statusBadge(a.status)}`}>
-                    {a.status}
-                  </span>
+            <h2 className="h2-agenda">Pendentes</h2>
 
-                  <div className="mt-4 flex gap-2">
-                    <button
-                      className="flex-1 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition"
-                      onClick={() => atualizarStatus(a.id, "confirmado")}
-                    >
-                      Confirmar
-                    </button>
-                    <button
-                      className="flex-1 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition"
-                      onClick={() => atualizarStatus(a.id, "cancelado")}
-                    >
-                      Cancelar
-                    </button>
-                  </div>
-                </div>
-              ))}
+            <div className="tabela-wrapper">
+              <table className="tabela">
+                <thead>
+                  <tr>
+                    <th>Serviço</th>
+                    <th>Cliente</th>
+                    <th>Profissional</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {pendentes.map((a) => (
+                    <tr key={a.id}>
+                      <td>{a.servicoNome}</td>
+                      <td>{a.clienteNome}</td>
+                      <td>{a.profissionalNome}</td>
+                      <td>{a.data}</td>
+                      <td>{a.hora}</td>
+                      <td>
+                        <span className={`badge ${statusBadge(a.status)}`}>
+                          {a.status}
+                        </span>
+                      </td>
+                      <td className="acoes">
+                        <button
+                          className="btn confirmar"
+                          onClick={() => atualizarStatus(a.id, "confirmado")}
+                        >
+                          Confirmar
+                        </button>
+
+                        <button
+                          className="btn cancelar"
+                          onClick={() => atualizarStatus(a.id, "cancelado")}
+                        >
+                          Cancelar
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </>
         )}
 
-        {/* Atendidos / Cancelados */}
+        {/* Atendidos */}
         {atendidos.length > 0 && (
           <>
-            <h2 className="text-2xl font-bold text-blue-600 mt-12 mb-6">
+            <h2 className="h2-agenda">
               Atendidos / Cancelados
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {atendidos.map((a) => (
-                <div
-                  key={a.id}
-                  className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{a.servicoNome}</h3>
-                  <p><strong>Cliente:</strong> {a.clienteNome}</p>
-                  <p><strong>Profissional:</strong> {a.profissionalNome}</p>
-                  <p><strong>Data:</strong> {a.data}</p>
-                  <p><strong>Hora:</strong> {a.hora}</p>
-                  {a.observacoes && <p><strong>Observações:</strong> {a.observacoes}</p>}
-                  <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold mt-2 ${statusBadge(a.status)}`}>
-                    {a.status}
-                  </span>
-                </div>
-              ))}
+
+            <div className="tabela-wrapper">
+              <table className="tabela">
+                <thead>
+                  <tr>
+                    <th>Serviço</th>
+                    <th>Cliente</th>
+                    <th>Profissional</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {atendidos.map((a) => (
+                    <tr key={a.id}>
+                      <td>{a.servicoNome}</td>
+                      <td>{a.clienteNome}</td>
+                      <td>{a.profissionalNome}</td>
+                      <td>{a.data}</td>
+                      <td>{a.hora}</td>
+                      <td>
+                        <span className={`badge ${statusBadge(a.status)}`}>
+                          {a.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </>
         )}

@@ -98,9 +98,7 @@ export default function Login() {
           <p>
             Esqueceu a senha? <Link to="/auth/recuperar-senha">clica aqui</Link>
           </p>
-          <p>
-            Não tem uma conta? <Link to="/auth/cadastrar-se">Cria uma conta</Link>
-          </p>
+        
         </form>
       </section>
     </div>
