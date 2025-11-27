@@ -41,11 +41,11 @@ export default function Header() {
         ></div>
 
         <Link to="/">Home</Link>
-        <a href="/#sobre">Sobre</a>
-        <a href="/#servicos">Serviços</a>
-        <a href="/#galeria">Galeria</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#galeria">Galeria</a>
         <Link to="/agendar">Agendar</Link>
-        <a href="/#fale-conosco">Fale Conosco</a>
+        <a href="#fale-conosco">Fale Conosco</a>
 
         {loggedIn && <Link to="/Contador">Meus Agendamentos</Link>}
         {isAdmin && <Link to="/admin/agendamentos">Ver Agendamentos</Link>}

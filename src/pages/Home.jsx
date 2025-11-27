@@ -46,7 +46,7 @@ export default function Home() {
 
     return (
         <>
-            <title>Salão Mirashell-DIONISIO</title>
+            <title>Salão Mirashell</title>
 
             {/*Header*/}
             <Header />
