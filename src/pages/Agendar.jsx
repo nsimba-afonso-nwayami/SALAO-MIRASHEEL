@@ -33,7 +33,7 @@ export default function Agendar() {
     // Verifica token (opcional)
     const verifyToken = () => {
         const token = localStorage.getItem("token");
-        console.log("Token no LocalStorage:", token);
+        //console.log("Token no LocalStorage:", token);
         if (!token) {
             //alert("A sua sessão expirou ou não foi encontrada. Por favor, faça login novamente.");
             localStorage.removeItem("token");
