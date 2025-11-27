@@ -27,7 +27,7 @@ export default function Login() {
       });
 
       const data = await response.json();
-      console.log("Resposta da API:", data); // Logando resposta completa
+      //console.log("Resposta da API:", data); // Logando resposta completa
 
       if (!response.ok) {
         throw new Error(data?.detail || "Usuário ou senha inválidos");
@@ -47,18 +47,18 @@ export default function Login() {
       // Se o ID do usuário estiver presente, armazena no localStorage
       if (userId) {
         localStorage.setItem("clienteId", userId); // Armazenando ID do cliente no localStorage
-        console.log("ID do usuário encontrado e salvo:", userId);
+        //console.log("ID do usuário encontrado e salvo:", userId);
       } else {
-        console.log("ID do usuário não encontrado na resposta da API.");
+        //console.log("ID do usuário não encontrado na resposta da API.");
       }
 
-      console.log("✅ Login bem-sucedido. Token salvo:", accessToken);
+      //console.log("✅ Login bem-sucedido. Token salvo:", accessToken);
 
       // 🔀 Redireciona para a página inicial ou dashboard
       navigate("/");
 
     } catch (err) {
-      console.error("❌ Erro no login:", err);
+      //console.error("❌ Erro no login:", err);
       setErro(err.message);  // Exibe mensagem de erro
     } finally {
       setLoading(false); // Finaliza o loading

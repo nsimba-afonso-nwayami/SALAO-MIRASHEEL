@@ -36,10 +36,10 @@ export default function CadastrarSe() {
       setTimeout(() => navigate("/auth/login"), 1000);
 
     } catch (err) {
-      console.error("Erro ao cadastrar:", err);
+      //console.error("Erro ao cadastrar:", err);
 
       // 🔥🔥 LOG COMPLETO DA RESPOSTA DA API — AQUI 🔥🔥
-      console.log("Resposta da API (erro):", err.response?.data);
+      //console.log("Resposta da API (erro):", err.response?.data);
 
       // Tratamentos possíveis retornados pela API
       const apiError =

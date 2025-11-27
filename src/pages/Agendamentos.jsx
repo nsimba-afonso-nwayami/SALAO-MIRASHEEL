@@ -45,7 +45,7 @@ export default function Agendamentos() {
 
       setAgendamentos(agendamentosComNome);
     } catch (err) {
-      console.error(err);
+      //console.error(err);
       setErro(err.message);
     } finally {
       setLoading(false);
@@ -80,8 +80,8 @@ export default function Agendamentos() {
         prev.map((a) => (a.id === id ? { ...a, status: novoStatus } : a))
       );
     } catch (err) {
-      console.error(err);
-      alert("Erro ao atualizar status: " + err.message);
+      /*console.error(err);
+      alert("Erro ao atualizar status: " + err.message);*/
     }
   };
 

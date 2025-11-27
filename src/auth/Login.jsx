@@ -27,11 +27,11 @@ export default function Login() {
 
       // Recebe o texto bruto da resposta
       const textData = await response.text();
-      alert("Resposta bruta da API:\n" + textData);
+      //alert("Resposta bruta da API:\n" + textData);
 
       // Converte para JSON
       const data = JSON.parse(textData);
-      console.log("Resposta da API (JSON):", data);
+      //console.log("Resposta da API (JSON):", data);
 
       if (!response.ok) {
         throw new Error(data?.detail || "Usuário ou senha inválidos");
@@ -51,16 +51,16 @@ export default function Login() {
 
       if (userId) {
         localStorage.setItem("clienteId", userId);
-        console.log("ID do usuário encontrado e salvo:", userId);
+        //console.log("ID do usuário encontrado e salvo:", userId);
       }
 
-      console.log("✅ Login bem-sucedido. Token salvo:", accessToken);
+      //console.log("✅ Login bem-sucedido. Token salvo:", accessToken);
       navigate("/"); // redireciona para a home
 
     } catch (err) {
-      console.error("❌ Erro no login:", err);
+      //console.error("❌ Erro no login:", err);
       setErro(err.message);
-      alert("Erro no login:\n" + err.message);
+      //alert("Erro no login:\n" + err.message);
     } finally {
       setLoading(false);
     }

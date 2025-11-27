@@ -26,12 +26,12 @@ export default function MeusAgendamentos() {
           }
         );
 
-        console.log("Dados recebidos da API:", response.data); // Para depurar
+        //console.log("Dados recebidos da API:", response.data); // Para depurar
 
         setAgendamentos(response.data);
         setErro("");
       } catch (err) {
-        console.error("Erro ao buscar agendamentos:", err);
+        //console.error("Erro ao buscar agendamentos:", err);
         setErro(err.response?.data?.erro || "Falha ao carregar agendamentos.");
       } finally {
         setLoading(false);
