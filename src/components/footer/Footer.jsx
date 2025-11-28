@@ -19,7 +19,7 @@ export default function Footer () {
                     <h3>Contato de Informação</h3>
                     <Link to="tel:927108033" className="links"><i className="fas fa-phone"></i> +244 927108033</Link>
                     <Link to="mailto:salaomicharel@gmail.com" className="links"><i className="fas fa-envelope"></i> salaomicharel@gmail.com</Link>
-                    <Link to="/#mapa" className="links"><i className="fas fa-map-marker-alt"></i> Luanda</Link>
+                    <Link to="/#mapa" className="links"><i className="fas fa-map-marker-alt"></i> Kilamba, T22 8° andar Porta 81</Link>
                 </div>
 
                 <div className="box">
