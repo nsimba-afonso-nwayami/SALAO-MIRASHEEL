@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/images/LOGO.png"
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,8 +31,39 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
-      <Link to="/" className="logo">Salão Mirashell</Link>
+    <header
+      className="header"
+      style={{
+        height: "80px",  // Altura fixa
+      }}
+    >
+
+      {/* LOGO EM CÍRCULO */}
+      <Link to="/" className="logo">
+        <div
+          style={{
+            width: "65px",       
+            height: "65px",
+            borderRadius: "50%",
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#fff",
+            border: "2px solid #d3d3d3",
+          }}
+        >
+          <img
+            src={logo}
+            alt="Logo"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+      </Link>
 
       <nav className={`navbar ${menuOpen ? "active" : ""}`}>
         <div
