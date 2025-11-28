@@ -26,7 +26,7 @@
 }
 
 .tabela thead {
-  background: #0C1744;
+  background: var(--primary-color);
   color: #fff;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .tabela tr:hover {
-  background: #f7f7f7;
+  background: var(--main-color);
 }
 
 /* BADGES */
