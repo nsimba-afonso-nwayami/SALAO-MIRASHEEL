@@ -247,7 +247,7 @@ export default function Home() {
             {/*Mapa*/}
             <section className="mapa" id="mapa">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126153.01125385346!2d13.20170168145374!3d-8.853353711556109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f15cdc8d2c7d%3A0x850c1c5c5ecc5a92!2sLuanda!5e0!3m2!1spt-PT!2sao!4v1754333255012!5m2!1spt-PT!2sao"
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15762.732180945357!2d13.257151589534864!3d-9.001284253434116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKilamba%20T22!5e0!3m2!1spt-PT!2sao!4v1764325460882!5m2!1spt-PT!2sao"
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
