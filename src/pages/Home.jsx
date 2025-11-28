@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/formatPrice";
 import { useForm } from "react-hook-form";
 
@@ -41,7 +42,7 @@ export default function Home() {
     });
 
     const onSubmit = (data) => {
-        console.log("Dados enviados:", data);
+        //console.log("Dados enviados:", data);
     };
 
     return (
@@ -109,7 +110,7 @@ export default function Home() {
                         </div>
                         <div className="content">
                             <h3>Cabeleireiro</h3>
-                            <a href="/cabeleireiro" className="btn">Ver mais</a>
+                            <Link to="/cabeleireiro" className="btn">Ver mais</Link>
                         </div>
                     </div>
 
@@ -119,7 +120,7 @@ export default function Home() {
                         </div>
                         <div className="content">
                             <h3>Extensões e Perucas</h3>
-                            <a href="/service-perucas" className="btn">Ver mais</a>
+                            <Link to="/service-perucas" className="btn">Ver mais</Link>
                         </div>
                     </div>
 
@@ -129,7 +130,7 @@ export default function Home() {
                         </div>
                         <div className="content">
                             <h3>Tranças e Penteados</h3>
-                            <a href="/service-trancas" className="btn">Ver mais</a>
+                            <Link to="/service-trancas" className="btn">Ver mais</Link>
                         </div>
                     </div>
 
@@ -139,7 +140,7 @@ export default function Home() {
                         </div>
                         <div className="content">
                             <h3>Estética</h3>
-                            <a href="/service-estetica" className="btn">Ver mais</a>
+                            <Link to="/service-estetica" className="btn">Ver mais</Link>
                         </div>
                     </div>
 
