@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Footer () {
     return (
@@ -25,9 +26,9 @@ export default function Footer () {
                 <div className="box">
                     <h3>Links Rápidos</h3>
                     <Link to="/" className="links"><i className="fas fa-arrow-right"></i> Home</Link>
-                    <Link to="/#sobre" className="links"><i className="fas fa-arrow-right"></i> Sobre</Link>
-                    <Link to="/#servicos" className="links"><i className="fas fa-arrow-right"></i> Serviços</Link>
-                    <Link to="/#agendar" className="links"><i className="fas fa-arrow-right"></i> Agendar</Link>
+                    <HashLink smooth to="/#sobre" className="links"><i className="fas fa-arrow-right"></i> Sobre</HashLink>
+                    <HashLink smooth to="/#servicos" className="links"><i className="fas fa-arrow-right"></i> Serviços</HashLink>
+                    <Link to="/agendar" className="links"><i className="fas fa-arrow-right"></i> Agendar</Link>
                 </div>
             </div>
             <div className="credit">&copy; {new Date().getFullYear()} Salão Mirashell | Todos os direitos reservados!</div>
