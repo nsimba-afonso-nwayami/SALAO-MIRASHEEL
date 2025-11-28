@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import logo from "../../assets/images/LOGO.png"
 
 export default function Header() {
@@ -73,11 +74,11 @@ export default function Header() {
         ></div>
 
         <Link to="/">Home</Link>
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#galeria">Galeria</a>
+        <HashLink smooth to="/#sobre">Sobre</HashLink>
+        <HashLink smooth to="/#servicos">Serviços</HashLink>
+        <HashLink smooth to="/#galeria">Galeria</HashLink>
         <Link to="/agendar">Agendar</Link>
-        <a href="#fale-conosco">Fale Conosco</a>
+        <HashLink smooth to="/#fale-conosco">Fale Conosco</HashLink>
 
         {loggedIn && <Link to="/Contador">Meus Agendamentos</Link>}
         {isAdmin && <Link to="/admin/agendamentos">Ver Agendamentos</Link>}
