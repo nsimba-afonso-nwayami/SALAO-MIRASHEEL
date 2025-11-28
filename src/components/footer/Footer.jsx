@@ -24,10 +24,10 @@ export default function Footer () {
 
                 <div className="box">
                     <h3>Links Rápidos</h3>
-                    <a href="/" className="links"><i className="fas fa-arrow-right"></i> Home</a>
-                    <a href="/#sobre" className="links"><i className="fas fa-arrow-right"></i> Sobre</a>
-                    <a href="/#servicos" className="links"><i className="fas fa-arrow-right"></i> Serviços</a>
-                    <a href="/#agendar" className="links"><i className="fas fa-arrow-right"></i> Agendar</a>
+                    <Link to="/" className="links"><i className="fas fa-arrow-right"></i> Home</Link>
+                    <Link to="/#sobre" className="links"><i className="fas fa-arrow-right"></i> Sobre</Link>
+                    <Link to="/#servicos" className="links"><i className="fas fa-arrow-right"></i> Serviços</Link>
+                    <Link to="/#agendar" className="links"><i className="fas fa-arrow-right"></i> Agendar</Link>
                 </div>
             </div>
             <div className="credit">&copy; {new Date().getFullYear()} Salão Mirashell | Todos os direitos reservados!</div>
