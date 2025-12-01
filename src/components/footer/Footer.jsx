@@ -9,10 +9,9 @@ export default function Footer () {
                     <h3>Salão Mirashell</h3>
                     <p>Cuide da sua beleza, eleve a sua auto estima e viva melhor!</p>
                     <div className="share">
-                    <Link to="#" target="_blank" className="fab fa-facebook-f" rel="noopener noreferrer"></Link>
-                    <Link to="#" target="_blank" className="fab fa-instagram" rel="noopener noreferrer"></Link>
-                    <Link to="#" target="_blank" className="fab fa-twitter" rel="noopener noreferrer"></Link>
-                    <Link to="#" target="_blank" className="fab fa-linkedin" rel="noopener noreferrer"></Link>
+                    <Link title="Facebook Mirashell" to="https://www.facebook.com/mirashellcabeleireirospa" target="_blank" className="fab fa-facebook-f" rel="noopener noreferrer"></Link>
+                    <Link title="Instagram Mirashell" to="https://www.instagram.com/mirashell_cabeleireiro_spa" target="_blank" className="fab fa-instagram" rel="noopener noreferrer"></Link>
+                    <Link title="Tiktok Mirashell" to="https://www.tiktok.com/@mirashell.cabeleir" target="_blank" className="fab fa-tiktok" rel="noopener noreferrer"></Link>
                     </div>
                 </div>
 
