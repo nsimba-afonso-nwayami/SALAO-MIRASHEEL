@@ -81,6 +81,7 @@ export default function Header() {
         <Link to="/loja">Loja</Link>
         <HashLink smooth to="/#fale-conosco">Fale Conosco</HashLink>
         {isAdmin && <Link to="/admin/agendamentos">Ver Agendamentos</Link>}
+        {isAdmin && <Link to="/visitas-site">Visitas do Site</Link>}
       </nav>
 
       <div className="icons">
