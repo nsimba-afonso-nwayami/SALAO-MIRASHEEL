@@ -9,6 +9,7 @@ import ServicoDesfriso from "../assets/images/service-hair-desfriso.jpg";
 import ServicoHidratacao from "../assets/images/service-hair-hidratacao.jpg";
 import ServicoVirada from "../assets/images/service-hair-virada.jpg";
 import ServicoMise from "../assets/images/service-hair-mise.jpg";
+import { Link } from "react-router-dom";
 
 export default function ServiceHair() {
   return (
@@ -43,7 +44,7 @@ export default function ServiceHair() {
               <p>Tranças Grossas: 20.000 Kz</p>
               <p>Tranças Médias: 25.000 Kz</p>
               <p>Tranças Finas: 30.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -57,7 +58,7 @@ export default function ServiceHair() {
               <p>Croche Juba: 25.000 Kz</p>
               <p>Tranças Mãos Finas: 28.000 Kz</p>
               <p>Tranças Mãos Finas: 18.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -70,7 +71,7 @@ export default function ServiceHair() {
               <h2>Todo Tipo de Apanhado</h2>
               <p>Coque: 25.000 Kz</p>
               <p>Pochinho: 15.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -86,7 +87,7 @@ export default function ServiceHair() {
               <p>Cabelo Médio (Ombro): 30.000 Kz</p>
               <p>Cabelo Médio (Meia-Costa): 35.000 Kz</p>
               <p>Cabelo Comprido (Cintura): 45.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -101,7 +102,7 @@ export default function ServiceHair() {
               <p>Cabelo Médio: 20.000 Kz</p>
               <p>Cabelo Comprido: 25.000 Kz</p>
               <p>Extra Longo: 30.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -115,7 +116,7 @@ export default function ServiceHair() {
               <p>Grossas: 15.000 Kz</p>
               <p>Médias: 20.000 Kz</p>
               <p>Finas: 25.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -132,7 +133,7 @@ export default function ServiceHair() {
               <p>Cabelo Médio (Baixo-Ombro): 10.000 Kz</p>
               <p>Cabelo Comprido (Meia-Costa): 12.000 Kz</p>
               <p>Extra Longo: 15.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 

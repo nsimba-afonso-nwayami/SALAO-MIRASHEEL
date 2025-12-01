@@ -6,6 +6,7 @@ import "../assets/css/services-trancas.css";
 import ServicoLimpeza from "../assets/images/service-trancas-limpeza.jpg";
 import ServicoMaquiagem from "../assets/images/service-trancas-maquiagem.jpg";
 import ServicoTrancas from "../assets/images/service-trancas.jpg";
+import { Link } from "react-router-dom";
 
 export default function ServiceTrancas() {
   return (
@@ -41,7 +42,7 @@ export default function ServiceTrancas() {
               <p>Limpeza Profunda: 20.000 Kz</p>
               <p>Microblading: 35.000 Kz</p>
               <p>Micro Pigmentação: 30.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -56,7 +57,7 @@ export default function ServiceTrancas() {
               <p>Maquiagem Normal: 15.000 Kz</p>
               <p>Pintura de Henna: 3.000 Kz</p>
               <p>Aplicação de Cílios Normal: 10.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -72,7 +73,7 @@ export default function ServiceTrancas() {
               <p>Americano (Finas): 25.000 Kz</p>
               <p>Bobi de Crianças (Grossas): 7.000 Kz</p>
               <p>Bobi de Crianças (Finas): 10.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 

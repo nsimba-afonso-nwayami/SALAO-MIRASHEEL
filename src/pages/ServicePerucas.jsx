@@ -8,6 +8,7 @@ import ServicoTratamento from "../assets/images/service-perucas-tratamento.jpg";
 import ServicoColoracao from "../assets/images/service-perucas-coloracao.jpg";
 import ServicoAplicacao from "../assets/images/service-perucas-aplicacao.jpg";
 import ServicoXoxo from "../assets/images/service-perucas-xoxo.jpg";
+import { Link } from "react-router-dom";
 
 export default function ServicePerucas() {
   return (
@@ -42,7 +43,7 @@ export default function ServicePerucas() {
               <p>Só Aplicação: 25.000 Kz</p>
               <p>Peruca Completa: 12.000 Kz</p>
               <p>Peruca Extra Longa: 15.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -58,7 +59,7 @@ export default function ServicePerucas() {
               <p>Peruca Completa: 45.000 Kz</p>
               <p>Peruca Extra Longa: 50.000 Kz</p>
               <p>Aplicação de Lace: 25.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -73,7 +74,7 @@ export default function ServicePerucas() {
               <p>Nó Italiano + Mise: 30.000 Kz</p>
               <p>Lace Frontal + Brushing: 25.000 Kz</p>
               <p>Preparação de Queratina: 60.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 
@@ -87,7 +88,7 @@ export default function ServicePerucas() {
               <p>Curto: 15.000 Kz</p>
               <p>Médio: 20.000 Kz</p>
               <p>Comprido: 25.000 Kz</p>
-              <a href="/agendar" className="btn">Agenda Agora</a>
+              <Link to="/agendar" className="btn">Agendar Agora</Link>
             </div>
           </div>
 

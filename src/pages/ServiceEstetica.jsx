@@ -40,7 +40,8 @@ export default function ServiceEstetica () {
                         <div className="content">
                             <h2>Radiofrequência</h2>
                             <p>8.000 Kz</p>
-                            <a href="/agendar" className="btn">Agenda Agora</a>
+                            <Link to="/agendar" className="btn">Agendar Agora</Link>
+                            
                         </div>
                     </div>
 
@@ -52,7 +53,7 @@ export default function ServiceEstetica () {
                         <div className="content">
                             <h2>Drenagem Linfática Infantil</h2>
                             <p>20.000 Kz</p>
-                            <a href="/agendar" className="btn">Agenda Agora</a>
+                            <Link to="/agendar" className="btn">Agendar Agora</Link>
                         </div>
                     </div>
 
@@ -64,7 +65,7 @@ export default function ServiceEstetica () {
                         <div className="content">
                             <h2>Hidrofacial</h2>
                             <p>25.000 Kz</p>
-                            <a href="/agendar" className="btn">Agenda Agora</a>
+                            <Link to="/agendar" className="btn">Agendar Agora</Link>
                         </div>
                     </div>
 
@@ -76,7 +77,7 @@ export default function ServiceEstetica () {
                         <div className="content">
                             <h2>Corrente Russa</h2>
                             <p>8.000 Kz</p>
-                            <a href="/agendar" className="btn">Agenda Agora</a>
+                            <Link to="/agendar" className="btn">Agendar Agora</Link>
                         </div>
                     </div>
 
@@ -88,7 +89,7 @@ export default function ServiceEstetica () {
                         <div className="content">
                             <h2>Desintoxicação Corporal</h2>
                             <p>25.000 Kz</p>
-                            <a href="/agendar" className="btn">Agenda Agora</a>
+                            <Link to="/agendar" className="btn">Agendar Agora</Link>
                         </div>
                     </div>
 
