@@ -18,8 +18,8 @@ export default function Footer () {
 
                 <div className="box">
                     <h3>Contato de Informação</h3>
-                    <Link to="tel:927108033" className="links"><i className="fas fa-phone"></i> +244 927108033</Link>
-                    <Link to="mailto:salaomicharel@gmail.com" className="links"><i className="fas fa-envelope"></i> salaomicharel@gmail.com</Link>
+                    <Link to="tel:923698462" className="links"><i className="fas fa-phone"></i> +244 923698462</Link>
+                    <Link to="mailto:geral@mirashell.com" className="links"><i className="fas fa-envelope"></i> geral@mirashell.com</Link>
                     <Link to="/#mapa" className="links"><i className="fas fa-map-marker-alt"></i> Kilamba, T22 8° andar Porta 81</Link>
                 </div>
 
