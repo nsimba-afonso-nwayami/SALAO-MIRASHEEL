@@ -57,7 +57,7 @@ export default function Encomendar() {
             Por favor, confirmar a disponibilidade.
         `;
 
-        const numero = "244923698462"; //
+        const numero = "244923698462";
         const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
         window.open(url, "_blank");
