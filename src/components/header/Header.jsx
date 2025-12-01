@@ -78,9 +78,8 @@ export default function Header() {
         <HashLink smooth to="/#servicos">Serviços</HashLink>
         <HashLink smooth to="/#galeria">Galeria</HashLink>
         <Link to="/agendar">Agendar</Link>
+        <Link to="/loja">Loja</Link>
         <HashLink smooth to="/#fale-conosco">Fale Conosco</HashLink>
-
-        {loggedIn && <Link to="/Contador">Meus Agendamentos</Link>}
         {isAdmin && <Link to="/admin/agendamentos">Ver Agendamentos</Link>}
       </nav>
 
