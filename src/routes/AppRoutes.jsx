@@ -11,6 +11,7 @@ import Agendar from "../pages/Agendar";
 import MeusAgendamentos from "../pages/Meuspedidos";
 import Loja from "../pages/Loja";
 import Encomendar from "../pages/Encomendar";
+import VisitasSite from "../pages/VisitasSite";
 
 import Login from "../auth/Login";
 import CadastrarSe from "../auth/CadastrarSe";
@@ -30,6 +31,7 @@ export default function AppRoutes() {
             <Route path="/agendar" element={<Agendar />} />
             <Route path="/loja" element={<Loja />} />
             <Route path="/loja/encomendar" element={<Encomendar />} />
+            <Route path="/visitas-site" element={<VisitasSite />} />
             <Route path="/Contador" element={<MeusAgendamentos />} />
 
             {/* Loja */}
