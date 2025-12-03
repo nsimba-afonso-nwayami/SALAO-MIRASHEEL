@@ -119,13 +119,6 @@ export default function Agendar() {
 
             <Header />
 
-            <section className="banner agendar">
-                <div className="content">
-                    <h3>Agende a Sua Sessão</h3>
-                    <p>Escolha o serviço, selecione a data e garanta o seu atendimento com nossos profissionais.</p>
-                </div>
-            </section>
-
             <section className="visit" id="agendamento">
                 <h1 className="heading">Agende Sua Sessão</h1>
 
