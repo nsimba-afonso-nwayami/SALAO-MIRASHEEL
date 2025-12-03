@@ -33,9 +33,9 @@ export default function Agendar() {
     // Verifica token (opcional)
     const verifyToken = () => {
         const token = localStorage.getItem("token");
-        //console.log("Token no LocalStorage:", token);
+        console.log("Token no LocalStorage:", token);
         if (!token) {
-            //alert("A sua sessão expirou ou não foi encontrada. Por favor, faça login novamente.");
+            alert("A sua sessão expirou ou não foi encontrada. Por favor, faça login novamente.");
             localStorage.removeItem("token");
             return false;
         }
@@ -51,7 +51,7 @@ export default function Agendar() {
                 const data = await response.json();
                 setServicos(data); // preenche o select
             } catch (error) {
-                //console.error("Erro ao buscar serviços:", error);
+                console.error("Erro ao buscar serviços:", error);
             }
         };
         fetchServicos();
@@ -65,7 +65,7 @@ export default function Agendar() {
         const requiredFields = ['data', 'hora', 'servico'];
         const missing = requiredFields.filter(field => !formData[field]);
         if (missing.length > 0) {
-            //alert("Por favor, preencha os seguintes campos: " + missing.join(", "));
+            alert("Por favor, preencha os seguintes campos: " + missing.join(", "));
             return;
         }
 
@@ -79,7 +79,7 @@ export default function Agendar() {
                 observacoes: formData.observacoes || "",
             };
 
-            //console.log("Dados que serão enviados:", payload); // debug
+            console.log("Dados que serão enviados:", payload); // debug
 
             const response = await fetch("https://api2.nwayami.com/api/agendamentos/", {
                 method: "POST",
@@ -93,7 +93,7 @@ export default function Agendar() {
             const data = await response.json();
 
             if (response.ok) {
-                //alert("Agendamento realizado com sucesso!");
+                alert("Agendamento realizado com sucesso!");
                 setFormData({
                     nome: '',
                     telefone: '',
@@ -104,12 +104,12 @@ export default function Agendar() {
                     profissional: '',
                 });
             } else {
-                //alert("Ocorreu um erro ao realizar o agendamento: " + (data.detail || 'Erro desconhecido.'));
+                alert("Ocorreu um erro ao realizar o agendamento: " + (data.detail || 'Erro desconhecido.'));
             }
 
         } catch (error) {
-            //console.error("Erro ao enviar o agendamento:", error);
-            //alert("Erro ao enviar o agendamento. Tente novamente mais tarde.");
+            console.error("Erro ao enviar o agendamento:", error);
+            alert("Erro ao enviar o agendamento. Tente novamente mais tarde.");
         }
     };
 
