@@ -48,7 +48,7 @@ export default function Encomendar() {
 
             itens: [
                 {
-                    produto: produto.id,              // <-- SOMENTE O ID DO PRODUTO
+                    produto: produto.id, // 
                     quantidade: Number(formData.quantidade),
                     preco: produto.preco,
                     total: total
