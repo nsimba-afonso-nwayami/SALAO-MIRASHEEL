@@ -29,14 +29,6 @@ export default function Loja() {
             {/*Header*/}
             <Header />
 
-            {/*Banner*/}
-            <section className="banner loja">
-                <div>
-                    <h3>Estamos construindo nossa loja</h3>
-                    <p>Por favor, tenha paciência.</p>
-                </div>
-            </section>
-
             {/*Produtos*/}
             <section className="loja">
                 <h2 className="heading">Nossos Produtos</h2>
