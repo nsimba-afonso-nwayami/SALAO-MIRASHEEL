@@ -57,7 +57,7 @@ export default function Home() {
                 <div className="content">
                     <h1>Beleza que Inspira Confiança</h1>
                     <p>Tratamentos exclusivos para realçar o melhor de você, todos os dias.</p>
-                    <a href="/agendar" className="btn">Agendar Agora</a>
+                    <Link to="/agendar" className="btn">Agendar Agora</Link>
                 </div>
 
                 <div className="video-container">
