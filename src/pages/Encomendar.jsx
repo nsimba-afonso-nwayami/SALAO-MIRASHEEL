@@ -124,13 +124,6 @@ export default function Encomendar() {
 
             <Header />
 
-            <section className="banner agendar">
-                <div className="content">
-                    <h3>Faça a sua encomenda</h3>
-                    <p>Preencha os seus dados e confirme a sua encomenda.</p>
-                </div>
-            </section>
-
             <section className="visit" id="agendamento">
                 <h1 className="heading">Detalhes da Encomenda</h1>
 
