@@ -19,7 +19,7 @@ export default function Footer () {
                     <h3>Contato de Informação</h3>
                     <Link to="tel:923698462" className="links"><i className="fas fa-phone"></i> +244 923698462</Link>
                     <Link to="mailto:geral@mirashell.com" className="links"><i className="fas fa-envelope"></i> geral@mirashell.com</Link>
-                    <Link to="/#mapa" className="links"><i className="fas fa-map-marker-alt"></i> Kilamba, T22 8° andar Porta 81</Link>
+                    <HashLink smooth to="/#mapa" className="links"><i className="fas fa-map-marker-alt"></i> Kilamba, T22 8° andar Porta 81</HashLink>
                 </div>
 
                 <div className="box">
