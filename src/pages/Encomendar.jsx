@@ -68,7 +68,7 @@ export default function Encomendar() {
             const data = await response.json();
 
             if (!response.ok) {
-                console.log("Erro da API:", data);
+                //console.log("Erro da API:", data);
                 alert("Erro ao enviar pedido.");
                 return;
             }
@@ -76,7 +76,7 @@ export default function Encomendar() {
             alert("Pedido enviado com sucesso!");
 
         } catch (error) {
-            console.error(error);
+            //console.error(error);
             alert("Erro ao enviar pedido. Tente novamente.");
         }
     };
