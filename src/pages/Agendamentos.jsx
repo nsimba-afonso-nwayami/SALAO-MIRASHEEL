@@ -1,17 +1,24 @@
-// src/pages/Agendamentos.jsx
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "../assets/css/style.css";
 import "../assets/css/agendamentos-table.css";
+import toast from "react-hot-toast";
 
 export default function Agendamentos() {
   const [agendamentos, setAgendamentos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState("");
+  const [buscaCliente, setBuscaCliente] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+
+  // FILTRO SOMENTE STATUS
+  const [filtroStatus, setFiltroStatus] = useState("todos");
+
+  // LIMITES DE REGISTROS
+  const limitePendentes = 10;
+  const limiteAtendidos = 10;
 
   // Buscar agendamentos
   const fetchAgendamentos = async () => {
@@ -34,8 +41,8 @@ export default function Agendamentos() {
 
       const agendamentosComNome = data.map((a) => ({
         id: a.id,
-        clienteNome: a.cliente_nome || "Anônimo",
-        profissionalNome: a.profissional_nome || "Não definido",
+        clienteNome: a.nome || "Sem nome",
+        profissionalNome: a.profissional || "Não definido",
         servicoNome: a.servico_nome || "Não definido",
         data: a.data,
         hora: a.hora,
@@ -44,9 +51,10 @@ export default function Agendamentos() {
       }));
 
       setAgendamentos(agendamentosComNome);
+      toast.success("Agendamentos carregados!");
     } catch (err) {
-      //console.error(err);
       setErro(err.message);
+      toast.error(err.message || "Erro ao carregar agendamentos.");
     } finally {
       setLoading(false);
     }
@@ -79,14 +87,30 @@ export default function Agendamentos() {
       setAgendamentos((prev) =>
         prev.map((a) => (a.id === id ? { ...a, status: novoStatus } : a))
       );
+
+      if (novoStatus === "confirmado") toast.success("Agendamento confirmado!");
+      if (novoStatus === "cancelado") toast("Agendamento cancelado!", { icon: "❌" });
     } catch (err) {
-      /*console.error(err);
-      alert("Erro ao atualizar status: " + err.message);*/
+      //toast.error("Erro ao atualizar status: " + err.message);
+      toast.error("Erro ao atualizar status: ");
     }
   };
 
-  const pendentes = agendamentos.filter((a) => a.status === "pendente");
-  const atendidos = agendamentos.filter((a) => a.status !== "pendente");
+  // Filtrar agendamentos pelo status e busca do cliente
+  const filtrarAgendamentos = (agendamentosArray) =>
+    agendamentosArray.filter((a) =>
+      a.clienteNome.toLowerCase().includes(buscaCliente.toLowerCase())
+    );
+
+  const pendentes = filtrarAgendamentos(
+    agendamentos.filter((a) => a.status === "pendente")
+  );
+
+  const atendidosFiltrados = filtrarAgendamentos(
+    agendamentos
+      .filter((a) => a.status !== "pendente")
+      .filter((a) => (filtroStatus !== "todos" ? a.status === filtroStatus : true))
+  );
 
   const statusBadge = (status) => {
     const colors = {
@@ -100,15 +124,27 @@ export default function Agendamentos() {
 
   return (
     <>
-      
-
+      <title>Dashboard</title>
       <section className="services">
-        <h1 className="heading">
-          Agendamentos
-        </h1>
+        <h1 className="heading">Agendamentos</h1>
 
-        {loading && <p className="text-center text-gray-500">Carregando agendamentos...</p>}
-        {erro && <p className="text-center text-red-500">{erro}</p>}
+        {/* Section de busca */}
+        <section className="section-search">
+          <form className="search-form" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="search"
+              name="tbusca"
+              id="search-box"
+              placeholder="Busque aqui..."
+              value={buscaCliente}
+              onChange={(e) => setBuscaCliente(e.target.value)}
+            />
+            <button type="submit" className="fas fa-search" title="Pesquisar"></button>
+          </form>
+        </section>
+
+        {loading && <p className="p-loading">Carregando agendamentos...</p>}
+        {erro && <p className="p-error">{erro}</p>}
         {!loading && !erro && agendamentos.length === 0 && (
           <p className="p-agenda">Nenhum agendamento encontrado.</p>
         )}
@@ -117,7 +153,6 @@ export default function Agendamentos() {
         {pendentes.length > 0 && (
           <>
             <h2 className="h2-agenda">Pendentes</h2>
-
             <div className="tabela-wrapper">
               <table className="tabela">
                 <thead>
@@ -131,9 +166,8 @@ export default function Agendamentos() {
                     <th>Ações</th>
                   </tr>
                 </thead>
-
                 <tbody>
-                  {pendentes.map((a) => (
+                  {pendentes.slice(0, limitePendentes).map((a) => (
                     <tr key={a.id}>
                       <td>{a.servicoNome}</td>
                       <td>{a.clienteNome}</td>
@@ -141,9 +175,7 @@ export default function Agendamentos() {
                       <td>{a.data}</td>
                       <td>{a.hora}</td>
                       <td>
-                        <span className={`badge ${statusBadge(a.status)}`}>
-                          {a.status}
-                        </span>
+                        <span className={`badge ${statusBadge(a.status)}`}>{a.status}</span>
                       </td>
                       <td className="acoes">
                         <button
@@ -152,7 +184,6 @@ export default function Agendamentos() {
                         >
                           Confirmar
                         </button>
-
                         <button
                           className="button cancelar"
                           onClick={() => atualizarStatus(a.id, "cancelado")}
@@ -168,12 +199,25 @@ export default function Agendamentos() {
           </>
         )}
 
-        {/* Atendidos */}
-        {atendidos.length > 0 && (
+        {/* Atendidos / Cancelados */}
+        {atendidosFiltrados.length > 0 && (
           <>
-            <h2 className="h2-agenda">
-              Atendidos / Cancelados
-            </h2>
+            <h2 className="h2-agenda">Confirmados / Cancelados</h2>
+
+            <div className="filtros-container">
+              <div>
+                <label>Status:</label>
+                <select
+                  value={filtroStatus}
+                  onChange={(e) => setFiltroStatus(e.target.value)}
+                  className="filtro-select"
+                >
+                  <option value="todos">Todos</option>
+                  <option value="confirmado">Confirmados</option>
+                  <option value="cancelado">Cancelados</option>
+                </select>
+              </div>
+            </div>
 
             <div className="tabela-wrapper">
               <table className="tabela">
@@ -187,9 +231,8 @@ export default function Agendamentos() {
                     <th>Status</th>
                   </tr>
                 </thead>
-
                 <tbody>
-                  {atendidos.map((a) => (
+                  {atendidosFiltrados.slice(0, limiteAtendidos).map((a) => (
                     <tr key={a.id}>
                       <td>{a.servicoNome}</td>
                       <td>{a.clienteNome}</td>
@@ -197,9 +240,7 @@ export default function Agendamentos() {
                       <td>{a.data}</td>
                       <td>{a.hora}</td>
                       <td>
-                        <span className={`badge ${statusBadge(a.status)}`}>
-                          {a.status}
-                        </span>
+                        <span className={`badge ${statusBadge(a.status)}`}>{a.status}</span>
                       </td>
                     </tr>
                   ))}
@@ -207,6 +248,11 @@ export default function Agendamentos() {
               </table>
             </div>
           </>
+        )}
+
+        {/* Mensagem se não houver resultados */}
+        {!loading && !erro && pendentes.length === 0 && atendidosFiltrados.length === 0 && (
+          <p className="p-agenda">Nenhum agendamento encontrado para este cliente.</p>
         )}
       </section>
 
