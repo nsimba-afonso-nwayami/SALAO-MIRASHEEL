@@ -16,7 +16,7 @@ export default function ServicePerucas() {
       <title>Extensões e Perucas | Salão Mirashell</title>
 
       {/*Header*/}
-      <Header />
+      
 
       {/*Banner*/}
       <section className="banner banner-perucas">

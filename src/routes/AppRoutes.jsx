@@ -18,10 +18,16 @@ import CadastrarSe from "../auth/CadastrarSe";
 import RecuperarSenha from "../auth/RecuperarSenha";
 
 import NotFound from "../pages/NotFound";
+import ScrollToTop from "../pages/ScrollToTop";
+import Header from "../components/header/Header";
 
 export default function AppRoutes() {
     return (
+      <>
+      <ScrollToTop/>
+      <Header/>
         <Routes>
+        
             {/* Site */}
             <Route path="/" element={<Home />} />
             <Route path="/cabeleireiro" element={<ServiceHair />} />
@@ -41,10 +47,13 @@ export default function AppRoutes() {
             <Route path="/auth/login" element={<Login />} />
             <Route path="/auth/cadastrar-se" element={<CadastrarSe />} />
             <Route path="/auth/recuperar-senha" element={<RecuperarSenha />} />
+
+            {/* Login */}
             <Route path="/admin/agendamentos" element={<Agendamentos />} />
 
             {/* Not Found */}
             <Route path="*" element={<NotFound />} />
         </Routes>
+        </>
     );
 }

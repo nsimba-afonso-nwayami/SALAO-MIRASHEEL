@@ -104,7 +104,7 @@ export default function Agendar() {
         <>
             <title>Agendar | Salão Mirashell</title>
 
-            <Header />
+            
 
             <section className="visit" id="agendamento">
                 <h1 className="heading">Agende Sua Sessão</h1>

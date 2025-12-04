@@ -17,7 +17,7 @@ export default function ServiceHair() {
       <title>Cabeleireiro | Salão Mirashell</title>
 
       {/*Header*/}
-      <Header />
+      
 
       {/*Banner*/}
       <section className="banner banner-hair">

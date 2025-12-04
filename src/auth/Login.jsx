@@ -55,7 +55,8 @@ export default function Login() {
       }
 
       //console.log("✅ Login bem-sucedido. Token salvo:", accessToken);
-      navigate("/"); // redireciona para a home
+      navigate("/admin/agendamentos"); // redireciona para a home
+      
 
     } catch (err) {
       //console.error("❌ Erro no login:", err);

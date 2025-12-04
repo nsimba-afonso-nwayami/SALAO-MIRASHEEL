@@ -31,19 +31,70 @@ export default function Header() {
     navigate("/auth/login");
   };
 
-  return (
-    <header
-      className="header"
-      style={{
-        height: "80px",  // Altura fixa
-      }}
-    >
+  // header do admin
+  if (isAdmin) {
+    return (
+      <header className="header" style={{ height: "80px" }}>
+        <Link to="/admin/agendamentos" className="logo">
+          <div
+            style={{
+              width: "65px",
+              height: "65px",
+              borderRadius: "50%",
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "#fff",
+              border: "2px solid #d3d3d3",
+            }}
+          >
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
+        </Link>
 
-      {/* LOGO EM CÍRCULO */}
+        <nav className={`navbar ${menuOpen ? "active" : ""}`}>
+          <div
+            id="close-navbar"
+            className="fas fa-times"
+            onClick={() => setMenuOpen(false)}
+          ></div>
+
+          <Link to="/admin/agendamentos">Gerenciar Agendamentos</Link>
+          <Link to="/admin/servicos">Serviços</Link>
+          <Link to="/admin/produtos">Produtos</Link>
+          <Link to="/admin/usuarios">Cadastrar Usuários</Link>
+          <Link to="/admin/relatorios">Relatórios</Link>
+        </nav>
+
+        <div className="icons">
+          <button
+            onClick={handleLogout}
+            className="link fas fa-sign-out-alt"
+            style={{ border: "none", background: "none" }}
+          ></button>
+
+          <div
+            id="menu-btn"
+            className="fas fa-bars"
+            onClick={() => setMenuOpen(true)}
+          ></div>
+        </div>
+      </header>
+    );
+  }
+
+  // header do usuário normal
+  return (
+    <header className="header" style={{ height: "80px" }}>
       <Link to="/" className="logo">
         <div
           style={{
-            width: "65px",       
+            width: "65px",
             height: "65px",
             borderRadius: "50%",
             overflow: "hidden",
@@ -57,11 +108,7 @@ export default function Header() {
           <img
             src={logo}
             alt="Logo"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
       </Link>
@@ -72,16 +119,14 @@ export default function Header() {
           className="fas fa-times"
           onClick={() => setMenuOpen(false)}
         ></div>
-
-        <Link to="/">Home</Link>
+        
+        <Link to="/">Inicio</Link>
         <HashLink smooth to="/#sobre">Sobre</HashLink>
         <HashLink smooth to="/#servicos">Serviços</HashLink>
         <HashLink smooth to="/#galeria">Galeria</HashLink>
         <Link to="/agendar">Agendar</Link>
         <Link to="/loja">Loja</Link>
-        <HashLink smooth to="/#fale-conosco">Fale Conosco</HashLink>
-        {isAdmin && <Link to="/admin/agendamentos">Ver Agendamentos</Link>}
-        {isAdmin && <Link to="/visitas-site">Visitas do Site</Link>}
+        <HashLink smooth to="/#fale-conosco">Fale Connosco</HashLink>
       </nav>
 
       <div className="icons">

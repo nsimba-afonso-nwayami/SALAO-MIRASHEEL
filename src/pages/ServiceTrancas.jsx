@@ -14,7 +14,7 @@ export default function ServiceTrancas() {
       <title>Estética e Beleza | Salão Mirashell</title>
 
       {/*Header*/}
-      <Header />
+      
 
       {/*Banner*/}
       <section className="banner banner-trancas">

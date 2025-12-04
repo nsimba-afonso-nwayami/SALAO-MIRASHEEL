@@ -100,7 +100,7 @@ export default function Agendamentos() {
 
   return (
     <>
-      <Header />
+      
 
       <section className="services">
         <h1 className="heading">

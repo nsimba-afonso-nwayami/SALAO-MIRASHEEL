@@ -16,7 +16,7 @@ export default function ServiceEstetica () {
             <title>Estética | Salão Mirashell</title>
 
             {/*Header*/}
-            <Header />
+            
 
             {/*Banner*/}
             <section className="banner banner-estetica">

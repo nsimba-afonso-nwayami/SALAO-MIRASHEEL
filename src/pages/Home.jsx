@@ -50,7 +50,7 @@ export default function Home() {
             <title>Salão Mirashell</title>
 
             {/*Header*/}
-            <Header />
+            
 
             {/*Home*/}
             <section className="home" id="home">

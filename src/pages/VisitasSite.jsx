@@ -11,7 +11,7 @@ export default function VisitasSite() {
         <>
             <title>Visitas do Site | Salão Mirashell</title>
 
-            <Header />
+            
 
             <section className="banner agendar">
                 <div className="content">

@@ -564,7 +564,7 @@ section, header, footer{
 		display: block;
 		margin: 1rem 0;
 		text-align: center;
-		font-size: 3rem;
+		font-size: 2.5rem;
 		color: var(--black);
 	}
 	.home .content h3{

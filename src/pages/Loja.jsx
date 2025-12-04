@@ -27,7 +27,7 @@ export default function Loja() {
             <title>Loja | Salão Mirashell</title>
 
             {/*Header*/}
-            <Header />
+            
 
             {/*Produtos*/}
             <section className="loja">
