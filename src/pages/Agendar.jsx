@@ -5,23 +5,24 @@ import Footer from "../components/footer/Footer";
 import "../assets/css/style.css";
 import "../assets/css/services.css";
 import "../assets/css/agendar.css";
+import toast from "react-hot-toast";
 
 export default function Agendar() {
     const [formData, setFormData] = useState({
         nome: "",
-        email: "",  
+        email: "",
         servico: "",
         data: "",
         hora: "",
         observacoes: "",
-        profissional: "", // opcional
+        profissional: "",
     });
 
     const [servicos, setServicos] = useState([]);
 
     const navigate = useNavigate();
 
-    // Atualiza valores do formulário
+    // Atualizar campos do form
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -35,7 +36,7 @@ export default function Agendar() {
                 const data = await response.json();
                 setServicos(data);
             } catch (error) {
-                //console.error("Erro ao buscar serviços:", error);
+                toast.error("Erro ao carregar serviços.");
             }
         };
         fetchServicos();
@@ -44,18 +45,17 @@ export default function Agendar() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Valida campos obrigatórios
         const required = ["nome", "servico", "data", "hora"];
         const missing = required.filter(field => !formData[field]);
 
         if (missing.length > 0) {
-            alert("Preencha os seguintes campos: " + missing.join(", "));
+            toast.error("Preencha os seguintes campos: " + missing.join(", "));
             return;
         }
 
         const payload = {
             nome: formData.nome,
-            email: formData.email || "", 
+            email: formData.email || "",
             profissional: formData.profissional || null,
             servico: parseInt(formData.servico),
             data: formData.data,
@@ -63,22 +63,21 @@ export default function Agendar() {
             observacoes: formData.observacoes || "",
         };
 
-        //console.log("Enviando:", payload);
+        // Mostra toast de carregamento
+        const loadingToast = toast.loading("Enviando agendamento...");
 
         try {
             const response = await fetch("https://api2.nwayami.com/api/agendamentos/", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload),
             });
 
             const data = await response.json();
-            //console.log("Resposta:", data);
 
             if (response.ok) {
-                alert("Agendamento realizado com sucesso!");
+                // Atualiza toast de loading para sucesso
+                toast.success("Agendamento realizado com sucesso!", { id: loadingToast });
 
                 setFormData({
                     nome: "",
@@ -90,21 +89,17 @@ export default function Agendar() {
                     profissional: "",
                 });
             } else {
-                alert("Erro ao agendar: ");
-                //alert("Erro ao agendar: " + (data.detail || "Erro desconhecido"));
+                // Atualiza toast de loading para erro
+                toast.error("Erro ao agendar!", { id: loadingToast });
             }
-
         } catch (error) {
-            //console.error("Erro ao enviar:", error);
-            alert("Erro ao realizar o agendamento. Tente mais tarde.");
+            toast.error("Erro ao realizar o agendamento.", { id: loadingToast });
         }
     };
 
     return (
         <>
             <title>Agendar | Salão Mirashell</title>
-
-            
 
             <section className="visit" id="agendamento">
                 <h1 className="heading">Agende Sua Sessão</h1>
@@ -113,7 +108,6 @@ export default function Agendar() {
                     <form onSubmit={handleSubmit}>
                         <h3>Marque o seu atendimento</h3>
 
-                        {/* Nome */}
                         <div className="inputBox">
                             <input
                                 type="text"
@@ -125,7 +119,6 @@ export default function Agendar() {
                             />
                         </div>
 
-                        {/* Email */}
                         <div className="inputBox">
                             <input
                                 type="email"
@@ -136,11 +129,10 @@ export default function Agendar() {
                             />
                         </div>
 
-                        {/* Serviço */}
                         <div className="inputBox">
-                            <select 
-                                name="servico" 
-                                required 
+                            <select
+                                name="servico"
+                                required
                                 value={formData.servico}
                                 onChange={handleChange}
                             >
@@ -153,7 +145,6 @@ export default function Agendar() {
                             </select>
                         </div>
 
-                        {/* Data */}
                         <div className="inputBox">
                             <input
                                 type="date"
@@ -164,7 +155,6 @@ export default function Agendar() {
                             />
                         </div>
 
-                        {/* Hora */}
                         <div className="inputBox">
                             <input
                                 type="time"
@@ -175,7 +165,6 @@ export default function Agendar() {
                             />
                         </div>
 
-                        {/* Observações */}
                         <div className="inputBox">
                             <textarea
                                 name="observacoes"
@@ -184,7 +173,7 @@ export default function Agendar() {
                                 placeholder="Observações adicionais (opcional)"
                                 value={formData.observacoes}
                                 onChange={handleChange}
-                            ></textarea>  
+                            ></textarea>
                         </div>
 
                         <button type="submit" className="btn">

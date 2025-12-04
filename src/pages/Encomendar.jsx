@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
-
 import "../assets/css/style.css";
 import "../assets/css/services.css";
 import "../assets/css/agendar.css";
+import toast from "react-hot-toast";
 
 export default function Encomendar() {
 
@@ -33,7 +33,7 @@ export default function Encomendar() {
         e.preventDefault();
 
         if (!produto) {
-            alert("Erro: Nenhum produto encontrado!");
+            toast.error("Erro: Nenhum produto encontrado!");
             return;
         }
 
@@ -48,13 +48,16 @@ export default function Encomendar() {
 
             itens: [
                 {
-                    produto: produto.id, // Recebe o ID do produto
+                    produto: produto.id,
                     quantidade: Number(formData.quantidade),
                     preco: produto.preco,
                     total: total
                 }
             ]
         };
+
+        // toast de carregamento
+        const loadingToast = toast.loading("Enviando encomenda...");
 
         try {
             const response = await fetch("https://api2.nwayami.com/api/encomendas/", {
@@ -68,16 +71,14 @@ export default function Encomendar() {
             const data = await response.json();
 
             if (!response.ok) {
-                //console.log("Erro da API:", data);
-                alert("Erro ao enviar pedido.");
+                toast.error("Erro ao enviar pedido.", { id: loadingToast });
                 return;
             }
 
-            alert("Pedido enviado com sucesso!");
+            toast.success("Pedido enviado com sucesso!", { id: loadingToast });
 
         } catch (error) {
-            //console.error(error);
-            alert("Erro ao enviar pedido. Tente novamente.");
+            toast.error("Erro ao enviar pedido. Tente novamente.", { id: loadingToast });
         }
     };
 
