@@ -422,6 +422,37 @@ section, header, footer{
 }
 /*visit end*/
 
+/* search form */
+.search-form{
+    width: 100%;
+    height: 5.5rem;
+    background: var(--white);
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: var(--border);
+    /*margin: 3rem 0;*/
+}
+.search-form input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 0 1.2rem;
+}
+.search-form button{
+    font-size: 2.2rem;
+    color: var(--white);
+    cursor: pointer;
+    -webkit-text-stroke: .1rem var(--black);
+    margin-right: 1.7rem;
+}
+.search-form button:hover{
+    -webkit-text-stroke: .1rem var(--black);
+}
+/* search form end */
+
 /* mapa */
 .mapa {
     padding: 0 !important;

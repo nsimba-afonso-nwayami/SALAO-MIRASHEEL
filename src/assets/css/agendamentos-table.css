@@ -1,13 +1,57 @@
+/* ======== FILTROS ======== */
+.filtros-container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filtros-container label {
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.filtro-select,
+.filtro-input {
+  padding: 8px 12px;
+  font-size: 1.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+}
+
+.filtro-select:focus,
+.filtro-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 4px var(--primary-color);
+}
+
 .h2-agenda {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 2ren;
 }
-.p-agenda {
-  font-size: 1.6rem;
+
+.p-agenda, .p-loading {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 700;
   padding: 1rem 0;
   line-height: 1.5;
   color: var(--black);
+}
+
+.p-error {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+  padding: 1rem 0;
+  line-height: 1.5;
+  color: var(--red);
 }
 
 .tabela-wrapper {
@@ -39,7 +83,7 @@
 }
 
 .tabela tr:hover {
-  background: var(--main-color);
+  background: var(--hover);
 }
 
 /* BADGES */
