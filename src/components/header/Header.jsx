@@ -69,6 +69,7 @@ export default function Header() {
           <Link to="/admin/produtos">Produtos</Link>
           <Link to="/admin/usuarios">Cadastrar Usuários</Link>
           <Link to="/admin/relatorios">Relatórios</Link>
+          <Link to="/admin/visitas-site">Visitas</Link>
         </nav>
 
         <div className="icons">
