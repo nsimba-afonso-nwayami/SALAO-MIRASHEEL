@@ -5,17 +5,19 @@ import ServiceHair from "../pages/ServiceHair";
 import ServicePerucas from "../pages/ServicePerucas";
 import ServiceTrancas from "../pages/ServiceTrancas";
 import ServiceEstetica from "../pages/ServiceEstetica";
-import Agendamentos from "../pages/Agendamentos";
-
 import Agendar from "../pages/Agendar";
 import MeusAgendamentos from "../pages/Meuspedidos";
 import Loja from "../pages/Loja";
 import Encomendar from "../pages/Encomendar";
-import VisitasSite from "../pages/VisitasSite";
 
 import Login from "../auth/Login";
 import CadastrarSe from "../auth/CadastrarSe";
 import RecuperarSenha from "../auth/RecuperarSenha";
+
+import Agendamentos from "../pages/Agendamentos";
+import Servicos from "../pages/Servicos.jsx";
+import Produtos from "../pages/Produtos.jsx";
+import VisitasSite from "../pages/VisitasSite";
 
 import NotFound from "../pages/NotFound";
 import ScrollToTop from "../pages/ScrollToTop";
@@ -37,7 +39,6 @@ export default function AppRoutes() {
             <Route path="/agendar" element={<Agendar />} />
             <Route path="/loja" element={<Loja />} />
             <Route path="/loja/encomendar" element={<Encomendar />} />
-            <Route path="/visitas-site" element={<VisitasSite />} />
             <Route path="/Contador" element={<MeusAgendamentos />} />
 
             {/* Loja */}
@@ -48,8 +49,11 @@ export default function AppRoutes() {
             <Route path="/auth/cadastrar-se" element={<CadastrarSe />} />
             <Route path="/auth/recuperar-senha" element={<RecuperarSenha />} />
 
-            {/* Login */}
+            {/* Admin */}
             <Route path="/admin/agendamentos" element={<Agendamentos />} />
+            <Route path="/admin/servicos" element={<Servicos />} />
+            <Route path="/admin/produtos" element={<Produtos />} />
+            <Route path="/admin/visitas-site" element={<VisitasSite />} />
 
             {/* Not Found */}
             <Route path="*" element={<NotFound />} />
