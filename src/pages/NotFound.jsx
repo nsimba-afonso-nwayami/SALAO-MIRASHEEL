@@ -6,9 +6,7 @@ export default function NotFound () {
     return (
         <>
             <title>Página não encontrada | Salão Mirashell</title>
-
-            {/*Header*/}
-    
+            
             <section className="erro mt-6 d-flex">
                 <div className="content">
                     <h1>404</h1>

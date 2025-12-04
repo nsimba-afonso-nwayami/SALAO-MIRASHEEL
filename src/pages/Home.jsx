@@ -49,9 +49,6 @@ export default function Home() {
         <>
             <title>Salão Mirashell</title>
 
-            {/*Header*/}
-            
-
             {/*Home*/}
             <section className="home" id="home">
                 <div className="content">

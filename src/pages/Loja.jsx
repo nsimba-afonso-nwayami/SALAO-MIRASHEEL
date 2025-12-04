@@ -24,10 +24,7 @@ export default function Loja() {
 
     return (
         <>
-            <title>Loja | Salão Mirashell</title>
-
-            {/*Header*/}
-            
+            <title>Loja | Salão Mirashell</title>   
 
             {/*Produtos*/}
             <section className="loja">
