@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "../assets/css/style.css";
 import "../assets/css/services.css";
@@ -113,8 +112,6 @@ export default function Encomendar() {
     return (
         <>
             <title>Encomendar | Salão Mirashell</title>
-
-            <Header />
 
             <section className="visit" id="agendamento">
                 <h1 className="heading">Detalhes da Encomenda</h1>
